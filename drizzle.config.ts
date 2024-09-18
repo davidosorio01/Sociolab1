@@ -1,15 +1,16 @@
 import { config } from 'dotenv';
-import { defineconfig } from 'drizzle-kit';
+import { defineConfig } from 'drizzle-kit';
 
 config( { path: '.env'});
 
-export default defineconfig ({
+export default defineConfig ({
     schema: './scr/lib/database/data.ts',
     out: './migrations', 
     driver: 'turso',
     dbCredentials: {
-        url: process,
-        authToken:process,
+        url: process.env.TURSO_CONNECTION_URL!,
+    
+        authToken:process.env.TURSO_AUTH_TOKEN!,
     }
 
 })
