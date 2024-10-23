@@ -71,10 +71,10 @@
                 <input type="submit" value="Login" class="btn solid" />
                 <p class="social-text">O Iniciar sesión con plataformas sociales</p>
                 <div class="social-media">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="1" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="2" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="3" class="social-icon"><i class="fab fa-google"></i></a>
+                    <a href="4" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </form>
             <form action="#" class="sign-up-form">

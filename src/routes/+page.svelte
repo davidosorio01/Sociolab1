@@ -1,3 +1,144 @@
+<script>
+    import "$lib/CSS/inicio.css"
+</script>
 
+<header class="header">
+    <img class="bg"src="images/bg.svg" alt="">
+
+    <div class="menu container">
+        
+        <img class="logo"src="images/logo_socio_lab-removebg-preview.png" alt="SocioLab">
+
+        <input type="checkbox"  id="menu">
+        <label for="menu"><img src="images/menu.png" class="menu-icono" alt=""></label>
+
+        <nav class="navbar">
+            <ul>
+             <li><a href="file:///C:/Users/USUARIO/Downloads/Login-Translate--main/Login-Translate--main/index.html">Inicio de sesion</a></li>
+             <li><a href="#contact">Contactanos</a></li>
+             <li><a href="#">Sobre nosotros </a></li>
+            </ul>
+        </nav> 
+    </div>
+
+    <div class="header-content container">
+
+        <div class="header-info">
+
+            <div class="header-txt">
+                <h1>Aprende sociales de una forma facil y entretenida</h1>
+                <p>
+                    Estamos aquí para ayudarte a alcanzar tus metas académicas mientras te diviertes. Prepárate para descubrir el fascinante mundo de las Ciencias Sociales y conquistar el ICFES con confianza y entusiasmo. ¡Empecemos esta aventura educativa juntos!
+                </p>
+                <a href="#" class="btn-1">¡Empieza ya!</a>
+
+            </div>
+
+            <div class="header-img">
+                <img src="images/lab-1.png" alt="">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<section class="nosotros">
+
+    <img class="bg-2" src="images/bg-2.svg">
+    <div class="nosotros-info contaier">
+        <div class="nosotros-img">
+            <img src="images/laby-2.png" alt="">
+
+        </div>
+        <div class="nosotros-txt">
+            <span>pero....</span>
+            <h2>¿Quienes somos ?</h2>
+            <p>
+                "¡Somos cuatro estudiantes de grado once decididos a cambiar la forma aburrida y monótona de aprender ciencias sociales para las pruebas ICFES! Estamos reinventando el proceso de estudio con una metodología emocionante y efectiva. Únete a nuestra iniciativa y descubre una nueva manera inspiradora de prepararte para el éxito académico. ¡Es hora de desafiar lo establecido y transformar el aprendizaje en una experiencia estimulante y gratificante!"
+            </p>
+           
+
+        </div>
+        
+
+    </div>
+  
+
+</section>
+
+
+<section class="info container">
+    <div class="info-head" id="contact" >
+        <h1>contactanos</h1>
+        <p>Comunicate con nosotros si tienes dudas o sugerencias </p>
+    </div>
+    <div class="info-1" >
+        <a href="https://api.whatsapp.com/send?phone=573054035509&text=hola"><img src="images/whatsapp.png" alt=""></a>
+        <h3>whatsapp</h3>
+        <p>3054035509</p>
+    </div>
+    <div class="info-1">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.facebook.com/profile.php?id=100087638443777"><img src="images/facebook.png" alt=""></a>
+        <h3>facebook</h3>
+        <p>@SocioLab</p>
+    </div>
+    <div class="info-1">
+        <a href="mailto:srguzman260@gmail.com?subject=mas%20informacion&"><img src="images/correo.png" alt=""></a>
+        <h3>Correo</h3>
+        <p>SocioLab@gmail.com</p>
+    </div>
+
+</section>
+
+
+
+<hr>
+
+<footer class="footer container">
+    <div class="footer-links">
+
+        <div class="link">
+            <h3>SocioLab</h3>
+
+        </div>
+
+        <div class="link">
+            <h3>codigo postal</h3>
+            <ul>
+               <li><a href="#">050010</a></li>  
+            </ul>
+        </div> 
+        <div class="link">
+            <h3>terminos y condiciones</h3>
+            <ul>
+               <li><a href="#">terminos de la comunidad</a></li>
+               <li><a href="#">privacidad</a></li>
+               <li><a href="#">normas</a></li>
+            </ul>
+        </div>
+        <div class="link">
+            <h3>creditos</h3>
+            <ul>
+               <li><a href="#">lore</a></li>
+               <li><a href="#">lore</a></li>
+               <li><a href="#">lore</a></li>
+               <li><a href="#">lore</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+    <hr>
+    <section class="Copyright">
+        <p>
+          Copyright &copy; 2024 All Rights Reserved By SocioLab
+          
+        </p>
+      </section>
+    
+</footer>
 
 
