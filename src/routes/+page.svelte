@@ -3,11 +3,11 @@
 	import logo from '$lib/IMAGES/images/logo.png';
 	import gato1 from '$lib/IMAGES/images/gato-1.png';
 	import gato2 from '$lib/IMAGES/images/gato_2.png';
-    import whatss from '$lib/IMAGES/images/whatsapp.png';
-    import face from '$lib/IMAGES/images/facebook.png';
-    import email from '$lib/IMAGES/images/correo.png';
-    import s1 from '$lib/IMAGES/images/bg.svg'
-    import s2 from '$lib/IMAGES/images/bg-2.svg'
+  import whatss from '$lib/IMAGES/images/whatsapp.png';
+  import face from '$lib/IMAGES/images/facebook.png';
+  import email from '$lib/IMAGES/images/correo.png';
+  import s1 from '$lib/IMAGES/images/bg.svg'
+  import s2 from '$lib/IMAGES/images/bg-2.svg'
 	import '$lib/CSS/inicio.css';
 </script>
 
@@ -21,9 +21,9 @@
       </label>
       <nav class="navbar">
         <ul>
-          <li><a href="file:///C:/Users/USUARIO/Downloads/Login-Translate--main/Login-Translate--main/index.html">Inicio de sesión</a></li>
-          <li><a href="#contact">Contáctanos</a></li>
-          <li><a href="#">Sobre nosotros</a></li>
+          <li><a href="/principal" data-sveltekit-preload-data="tap" data-sveltekit-reload>Inicio de sesión</a></li>
+          <li><a href="/contact">Contáctanos</a></li>
+          <li><a href="/sss">Sobre nosotros</a></li>
         </ul>
       </nav>
     </div>
@@ -32,7 +32,7 @@
         <div class="header-txt">
           <h1>Aprende sociales de una forma fácil y entretenida</h1>
           <p>Estamos aquí para ayudarte a alcanzar tus metas académicas mientras te diviertes. Prepárate para descubrir el fascinante mundo de las Ciencias Sociales y conquistar el ICFES con confianza y entusiasmo. ¡Empecemos esta aventura educativa juntos!</p>
-          <a href="#" class="btn-1">¡Empieza ya!</a>
+          <a href="/" class="btn-1">¡Empieza ya!</a>
         </div>
         <div class="header-img">
           <img src={gato1} alt="" />
@@ -42,7 +42,7 @@
   </header>
   
   <section class="nosotros">
-    <img class="bg-2" src={s2} />
+    <img class="bg-2" src={s2}/>
     <div class="nosotros-info container">
       <div class="nosotros-img">
         <img src={gato2} alt="" />
@@ -93,24 +93,24 @@
       <div class="link">
         <h3>Código postal</h3>
         <ul>
-          <li><a href="#">050010</a></li>
+          <li><a href="/">050010</a></li>
         </ul>
       </div>
       <div class="link">
         <h3>Términos y condiciones</h3>
         <ul>
-          <li><a href="#">Términos de la comunidad</a></li>
-          <li><a href="#">Privacidad</a></li>
-          <li><a href="#">Normas</a></li>
+          <li><a href="/">Términos de la comunidad</a></li>
+          <li><a href="/">Privacidad</a></li>
+          <li><a href="/">Normas</a></li>
         </ul>
       </div>
       <div class="link">
         <h3>Créditos</h3>
         <ul>
-          <li><a href="#">Lore</a></li>
-          <li><a href="#">Lore</a></li>
-          <li><a href="#">Lore</a></li>
-          <li><a href="#">Lore</a></li>
+          <li><a href="/">Lore</a></li>
+          <li><a href="/">Lore</a></li>
+          <li><a href="/">Lore</a></li>
+          <li><a href="/">Lore</a></li>
         </ul>
       </div>
     </div>
