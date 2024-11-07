@@ -20,7 +20,7 @@
 <div class="container {signUpMode ? 'sign-up-mode' : ''}">
     <div class="forms-container">
       <div class="signin-signup">
-        <form action="/temas" class="sign-in-form" data-sveltekit-preload-data="tap" data-sveltekit-reload>
+        <form action="/servicios" class="sign-in-form" data-sveltekit-preload-data="tap" data-sveltekit-reload>
           <h2 class="title">Iniciar sesion</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
@@ -49,9 +49,8 @@
         </form>
 
 
-        //parte de la izquierda 
 
-        <form action="/temas" class="sign-up-form" data-sveltekit-preload-data="tap" data-sveltekit-reload>
+        <form action="/servicios" class="sign-up-form" data-sveltekit-preload-data="tap" data-sveltekit-reload>
           <h2 class="title">Registrarse</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>

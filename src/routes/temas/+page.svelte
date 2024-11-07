@@ -1,130 +1,105 @@
 <script>
     import "$lib/CSS/temas.css"
+    
 
 </script>
 
-<header>
-    <a href="#" class="logo">CAT LOVER</a>
-    <nav>
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Servicios</a></li>
-            <li><a href="#">Portafolio</a></li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
-    </nav>
-</header>
-<body>
-
-    <div class="container">
-        <div class="grid">
-            <div class="card">
-                <div class="card-image-container">
-                    <img src="imagenes-temas/guerra-fria.webp" class="card-image">
-                </div>
-                <div class="card-content">
-                    <h2 class="card-title">Guerras Mundiales</h2>
-                    <p>La Primera Guerra Mundial (1914-1918) fue un conflicto entre potencias aliadas y centrales. 
-                    <br>
-                    La Segunda Guerra Mundial (1939-1945) surgió de estas tensiones y culminó con la derrota de las Potencias del Eje, dando paso a importantes sucesos historicos...
-                    </p>
-                </div>
-                <a href="#" class="btn">Ir a la página 1</a>
-            </div>
-            <div class="card">
-                <div class="card-image-container">
-                    <img src="imagenes-temas/guerras mundiales.jpg"  class="card-image">
-                </div>
-                <div class="card-content">
-                    <h2 class="card-title">Tratado de Versalles</h2>
-                    <p>El Tratado de Versalles, firmado el 28 de junio de 1919, puso fin a la Primera Guerra Mundial, imponiendo a Alemania reparaciones económicas, limitaciones militares y pérdida de territorios, lo que generó descontento y contribuyó a la inestabilidad en Europa...</p>
-                </div>
-                <a href="#" class="btn">Ir a la página 2</a>
-            </div>
-            <div class="card">
-                <div class="card-image-container">
-                    <img src="imagenes-temas/guerras mundiales.jpg" alt="Imagen representativa 3" class="card-image">
-                </div>
-                <div class="card-content">
-                    <h2 class="card-title">La Gran Depresión</h2>
-                    <p>La Gran Depresión fue una crisis económica global que comenzó en 1929 con el colapso de la Bolsa de Nueva York, causando una caída drástica en la producción, un aumento del desempleo y cambios significativos en las políticas económicas en muchos países durante la década de 1930...</p>
-                </div>
-                <a href="#" class="btn">Ir a la página 3</a>
-            </div>
-            <div class="card">
-                <div class="card-image-container">
-                    <img src="imagenes-temas/guerra-fria.webp"  class="card-image">
-                </div>
-                <div class="card-content">
-                    <h2 class="card-title">Guerra Fría</h2>
-                    <p>El período de tensión entre el bloque occidental, liderado por Estados Unidos, y el bloque oriental, encabezado por la Unión Soviética, se extendió desde el final de la Segunda Guerra Mundial hasta 1991. Se caracterizó por conflictos indirectos y la rivalidad ideológica entre capitalismo y comunismo...</p>
-                </div>
-                <a href="#" class="btn">Ir a la página 4</a>
-            </div>
-            <div class="card">
-                <div class="card-image-container">
-                    <img src="imagenes-temas/guerras mundiales.jpg" alt="Imagen representativa 5" class="card-image">
-                </div>
-                <div class="card-content">
-                    <h2 class="card-title">Organismo de Control</h2>
-                    <p>Los organismos de control en Colombia, como la Contraloría General, la Procuraduría General y la Defensoría del Pueblo, garantizan la transparencia y el uso adecuado de los recursos públicos, luchan contra la corrupción y promueven la rendición de cuentas en la administración pública...</p>
-                </div>
-                <a href="#" class="btn">Ir a la página 5</a>
-            </div>
-            <div class="card">
-                <div class="card-image-container">
-                    <img src="imagenes-temas/guerras mundiales.jpg" alt="Imagen representativa 6" class="card-image">
-                </div>
-                <div class="card-content">
-                    <h2 class="card-title">Mecanismos de Participación Ciudadana</h2>
-                    <p>Los mecanismos de participación ciudadana en Colombia, como el voto, consultas populares, cabildos abiertos e iniciativas legislativas, permiten a los ciudadanos involucrarse en la toma de decisiones y la gestión pública, fomentando la democracia y la transparencia...</p>
-                </div>
-                <a href="#" class="btn">Ir a la página 6</a>
-            </div>
-        </div>
+<nav class="navbar">
+    <div class="logo">
+    <h4>SOCIOLAB🌎</h4>
     </div>
-</body>
-
-<footer class="footer container">
-    <div class="footer-links">
-
-        <div class="link">
-            <h3>SocioLab</h3>
-
-        </div>
-
-        <div class="link">
-            <h3>codigo postal</h3>
-            <ul>
-               <li><a href="#">050010</a></li>  
-            </ul>
-        </div> 
-        <div class="link">
-            <h3>terminos y condiciones</h3>
-            <ul>
-               <li><a href="#">terminos de la comunidad</a></li>
-               <li><a href="#">privacidad</a></li>
-               <li><a href="#">normas</a></li>
-            </ul>
-        </div>
-        <div class="link">
-            <h3>creditos</h3>
-            <ul>
-               <li><a href="#">lore</a></li>
-               <li><a href="#">lore</a></li>
-               <li><a href="#">lore</a></li>
-               <li><a href="#">lore</a></li>
-            </ul>
-
-        </div>
-
+    <ul class="nav-links">
+        <li>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Buscar...">
+                <button class="search-button">Buscar</button>
+            </div>
+        </li>
+        <li><a href="/" class="nav-item">Inicio</a></li>
+        <li><a href="/" class="nav-item">Acerca de</a></li>
+        <li><a href="/" class="nav-item">Servicios</a></li>
+        <li><a href="/" class="nav-item">Contacto</a></li>
+       
+    </ul>
+    <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
     </div>
-    <hr>
-    <section class="Copyright">
-        <p>
-          Copyright &copy; 2024 All Rights Reserved By SocioLab
-          
-        </p>
+</nav>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="img/Imagen_de_WhatsApp_2024-10-31_a_las_11.07.24_227c309c-removebg-preview.png" alt="Imagen principal" class="hero-image">
+                <div class="hero-text">
+                    <h1>¡Bienvenido a tu nueva aventura en Ciencias Sociales! 🌎✨ </h1>
+                    <p>Aquí podrás explorar temas apasionantes, ver videos, leer información clave, y poner a prueba tus conocimientos con exámenes interactivos. ¿Listo para sumergirte en el conocimiento? ¡Vamos a empezar! 🚀📚</p>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <section class="options">
+        <div class="container">
+            <h2>NUESTROS TEMAS 🌍🎓📖</h2>
+            <div class="options-grid">
+                <div class="option-card">
+                    <img src="img/guerras mundiales.jpg" alt="Opción 1" class="option-image">
+                    <div class="option-content">
+                        <h3>GUERRAS MUNDIALES</h3>
+                        <a href="/examenes" data-sveltekit-preload-data="tap" data-sveltekit-reload>Dos conflictos épicos que moldearon el rumbo de la humanidad, cambiando para siempre nuestras ideas de paz, poder y progreso. Conoce las causas, las grandes batallas y las profundas consecuencias de estas guerras.</a>
+                        
+                    </div>
+                </div>
+                <div class="option-card">
+                    <img src="img/participacion.png" alt="Opción 2" class="option-image">
+                    <div class="option-content">
+                        <h3>MECANISMOS DE PARTICIPACION</h3>
+                        <p>En esta sección, descubrirás las herramientas y espacios que te permiten ser un ciudadano activo. Desde el voto hasta los cabildos abiertos, entenderás cómo influir en las decisiones que construyen nuestro país.</p>
+                        <button class="btn">Entrar</button>
+                    </div>
+                </div>
+                <div class="option-card">
+                    <img src="img/tratado.webp" alt="Opción 3" class="option-image">
+                    <div class="option-content">
+                        <h3>TRATADO DE VERSALLES</h3>
+                        <p>Un pacto que prometió el fin de la Primera Guerra Mundial, pero terminó sembrando la semilla de nuevas tensiones. Aquí verás sus términos, sus promesas, y el impacto que tuvo en el mapa político mundial.</p>
+                        <button class="btn">Entrar</button>
+                    </div>
+                </div>
+                <div class="option-card">
+                    <img src="img/guerra fria.webp" alt="Opción 4" class="option-image">
+                    <div class="option-content">
+                        <h3>LA GUERRA FRIA </h3>
+                        <p>Una batalla sin armas entre dos potencias. Conoce cómo Estados Unidos y la Unión Soviética compitieron en ideología, tecnología y poder, creando una era de tensiones globales que nos afectó a todos.</p>
+                        <button class="btn">Entrar</button>
+                    </div>
+                </div>
+                <div class="option-card">
+                    <img src="img/depresion.png" alt="Opción 5" class="option-image">
+                    <div class="option-content">
+                        <h3>LA GRAN DEPRESION </h3>
+                        <p>La crisis económica que paralizó al mundo. Explora cómo una caída en la bolsa de valores desencadenó una crisis sin precedentes, afectando a millones de personas y dando origen a nuevas políticas.</p>
+                        <button class="btn">Entrar</button>
+                    </div>
+                </div>
+                <div class="option-card">
+                    <img src="img/ramas ed poder.jpg" alt="Opción 6" class="option-image">
+                    <div class="option-content">
+                        <h3>RAMAS DE PODER PUBLICO </h3>
+                        <p>¿Cómo se organiza el poder en Colombia? Aquí descubrirás las tres ramas que lo componen: Ejecutiva, Legislativa y Judicial, y cómo trabajan juntas para dirigir el país.</p>
+                        <button class="btn">Entrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 SOCIOLAB. Todos los derechos reservados.</p>
+    </div>
 </footer>
