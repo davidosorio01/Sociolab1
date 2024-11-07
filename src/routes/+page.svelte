@@ -21,7 +21,7 @@
       </label>
       <nav class="navbar">
         <ul>
-          <li><a href="/principal" data-sveltekit-preload-data="tap" data-sveltekit-reload>Inicio de sesión</a></li>
+          <li><a href="/login" data-sveltekit-preload-data="tap" data-sveltekit-reload>Inicio de sesión</a></li>
           <li><a href="/contact">Contáctanos</a></li>
           <li><a href="/sss">Sobre nosotros</a></li>
         </ul>
@@ -32,7 +32,7 @@
         <div class="header-txt">
           <h1>Aprende sociales de una forma fácil y entretenida</h1>
           <p>Estamos aquí para ayudarte a alcanzar tus metas académicas mientras te diviertes. Prepárate para descubrir el fascinante mundo de las Ciencias Sociales y conquistar el ICFES con confianza y entusiasmo. ¡Empecemos esta aventura educativa juntos!</p>
-          <a href="/" class="btn-1">¡Empieza ya!</a>
+          <a href="/login" data-sveltekit-preload-data="tap" data-sveltekit-reload class="btn-1">¡Empieza ya!</a>
         </div>
         <div class="header-img">
           <img src={gato1} alt="" />
@@ -107,7 +107,7 @@
       <div class="link">
         <h3>Créditos</h3>
         <ul>
-          <li><a href="/">Lore</a></li>
+          <li><a href="/"></a></li>
           <li><a href="/">Lore</a></li>
           <li><a href="/">Lore</a></li>
           <li><a href="/">Lore</a></li>

@@ -20,15 +20,15 @@
 <div class="container {signUpMode ? 'sign-up-mode' : ''}">
     <div class="forms-container">
       <div class="signin-signup">
-        <form action="/principal" class="sign-in-form">
+        <form action="/temas" class="sign-in-form" data-sveltekit-preload-data="tap" data-sveltekit-reload>
           <h2 class="title">Iniciar sesion</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
+            <input type="email" placeholder="email" required/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" />
+            <input type="password" placeholder="Password" required/>
           </div>
           <input type="submit" value="Login" class="btn solid" />
           <p class="social-text">O Iniciar sesión con plataformas sociales</p>
@@ -47,19 +47,23 @@
             </a>
           </div>
         </form>
-        <form action="/principal" class="sign-up-form">
+
+
+        //parte de la izquierda 
+
+        <form action="/temas" class="sign-up-form" data-sveltekit-preload-data="tap" data-sveltekit-reload>
           <h2 class="title">Registrarse</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
+            <input type="text" placeholder="Username" required />
           </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" />
+            <input type="email" placeholder="Email" required/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" />
+            <input type="password" placeholder="Password" required/>
           </div>
           <input type="submit" class="btn" value="Sign up" />
           <p class="social-text">O Regístrese con las plataformas sociales</p>
@@ -86,7 +90,6 @@
         <div class="content">
           <h3>Nuevo aquí?</h3>
           <p>¡Registrate y conocénos!</p>
-          <a href="/temas" data-sveltekit-preload-data="tap" data-sveltekit-reload>¡Registrate</a>
           <button on:click={toggleSignUp} class="btn transparent" id="sign-up-btn">
             registrarse
           </button>
@@ -97,7 +100,7 @@
         <div class="content">
           <h3>¿Ya eres uno de nosotros?</h3>
           <p>Nos alegra verte de nuevo :D</p>
-          <button on:click={toggleSignIn} class="btn transparent" id="sign-in-btn">
+          <button on:click={toggleSignIn }  class="btn transparent" id="sign-in-btn">
             Iniciar sesión
           </button>
         </div>
