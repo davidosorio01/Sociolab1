@@ -20,15 +20,15 @@
 <div class="container {signUpMode ? 'sign-up-mode' : ''}">
     <div class="forms-container">
       <div class="signin-signup">
-        <form action="/servicios" class="sign-in-form" data-sveltekit-preload-data="tap" data-sveltekit-reload>
+        <form action="?/login" class="sign-in-form" data-sveltekit-preload-data="tap" data-sveltekit-reload>
           <h2 class="title">Iniciar sesion</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="email" placeholder="email" required/>
+            <input name="correo" type="email" placeholder="email" required/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" required/>
+            <input name="password" type="password" placeholder="Password" required/>
           </div>
           <input type="submit" value="Login" class="btn solid" />
           <p class="social-text">O Iniciar sesión con plataformas sociales</p>
@@ -50,19 +50,19 @@
 
 
 
-        <form action="/servicios" class="sign-up-form" data-sveltekit-preload-data="tap" data-sveltekit-reload>
+        <form action="?/register" class="sign-up-form" data-sveltekit-preload-data="tap" data-sveltekit-reload>
           <h2 class="title">Registrarse</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" required />
+            <input name="username" type="text" placeholder="Username" required />
           </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" required/>
+            <input name="correo" type="email" placeholder="Email" required/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" required/>
+            <input name="password" type="password" placeholder="Password" required/>
           </div>
           <input type="submit" class="btn" value="Sign up" />
           <p class="social-text">O Regístrese con las plataformas sociales</p>

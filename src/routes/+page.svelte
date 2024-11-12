@@ -22,8 +22,8 @@
       <nav class="navbar">
         <ul>
           <li><a href="/login" data-sveltekit-preload-data="tap" data-sveltekit-reload>Inicio de sesión</a></li>
-          <li><a href="/contact">Contáctanos</a></li>
-          <li><a href="/sss">Sobre nosotros</a></li>
+          <li><a href="#Contactanos">Contáctanos</a></li>
+          <li><a href="/sobre_nosotros" data-sveltekit-preload-data="tap" data-sveltekit-reload >Sobre nosotros</a></li>
         </ul>
       </nav>
     </div>
@@ -55,7 +55,7 @@
     </div>
   </section>
   
-  <section class="info container">
+  <section class="info container" id="Contactanos">
     <div class="info-head" id="contact">
       <h1>Contáctanos</h1>
       <p>Comunícate con nosotros si tienes dudas o sugerencias</p>

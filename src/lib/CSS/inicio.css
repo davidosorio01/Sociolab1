@@ -6,6 +6,12 @@
     text-decoration: none;
     list-style: none;
   }
+  html{
+    scroll-behavior: smooth;
+  }
+  section[id]{
+    scroll-margin-top: 70px;
+  }
   body {
     font-family: "Poppins", sans-serif;
     background-color: rgb(255, 255, 255);

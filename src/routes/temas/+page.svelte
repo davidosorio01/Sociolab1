@@ -1,6 +1,12 @@
 <script>
     import "$lib/CSS/temas.css"
-    
+    import imagenWpp from '$lib/IMAGES/img_temas/Imagen_de_WhatsApp_2024-10-31_a_las_11.07.24_227c309c-removebg-preview.png'
+    import guerra from '$lib/IMAGES/img_temas/guerrasmundiales.jpg'
+    import participacion from '$lib/IMAGES/img_temas/participacion.png'
+    import tratado from '$lib/IMAGES/img_temas/tratado.webp'
+    import fria from '$lib/IMAGES/img_temas/guerrafria.webp'
+    import depresion from '$lib/IMAGES/img_temas/depresion.png'
+    import ramas from '$lib/IMAGES/img_temas/ramasdepoder.jpg'
 
 </script>
 
@@ -32,7 +38,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <img src="img/Imagen_de_WhatsApp_2024-10-31_a_las_11.07.24_227c309c-removebg-preview.png" alt="Imagen principal" class="hero-image">
+                <img src={imagenWpp} alt="Imagen principal" class="hero-image">
                 <div class="hero-text">
                     <h1>¡Bienvenido a tu nueva aventura en Ciencias Sociales! 🌎✨ </h1>
                     <p>Aquí podrás explorar temas apasionantes, ver videos, leer información clave, y poner a prueba tus conocimientos con exámenes interactivos. ¿Listo para sumergirte en el conocimiento? ¡Vamos a empezar! 🚀📚</p>
@@ -46,15 +52,17 @@
             <h2>NUESTROS TEMAS 🌍🎓📖</h2>
             <div class="options-grid">
                 <div class="option-card">
-                    <img src="img/guerras mundiales.jpg" alt="Opción 1" class="option-image">
+                    <img src={guerra} alt="Opción 1" class="option-image">
                     <div class="option-content">
                         <h3>GUERRAS MUNDIALES</h3>
-                        <a href="/examenes" data-sveltekit-preload-data="tap" data-sveltekit-reload>Dos conflictos épicos que moldearon el rumbo de la humanidad, cambiando para siempre nuestras ideas de paz, poder y progreso. Conoce las causas, las grandes batallas y las profundas consecuencias de estas guerras.</a>
+                        <p>Dos conflictos épicos que moldearon el rumbo de la humanidad, cambiando para siempre nuestras ideas de paz, poder y progreso. Conoce las causas, las grandes batallas y las profundas consecuencias de estas guerras.</p>
                         
+                        
+                        <a href="/examen_guerraM"><button class="btn">Entrar</button></a>
                     </div>
                 </div>
                 <div class="option-card">
-                    <img src="img/participacion.png" alt="Opción 2" class="option-image">
+                    <img src={participacion} alt="Opción 2" class="option-image">
                     <div class="option-content">
                         <h3>MECANISMOS DE PARTICIPACION</h3>
                         <p>En esta sección, descubrirás las herramientas y espacios que te permiten ser un ciudadano activo. Desde el voto hasta los cabildos abiertos, entenderás cómo influir en las decisiones que construyen nuestro país.</p>
@@ -62,7 +70,7 @@
                     </div>
                 </div>
                 <div class="option-card">
-                    <img src="img/tratado.webp" alt="Opción 3" class="option-image">
+                    <img src={tratado} alt="Opción 3" class="option-image">
                     <div class="option-content">
                         <h3>TRATADO DE VERSALLES</h3>
                         <p>Un pacto que prometió el fin de la Primera Guerra Mundial, pero terminó sembrando la semilla de nuevas tensiones. Aquí verás sus términos, sus promesas, y el impacto que tuvo en el mapa político mundial.</p>
@@ -70,7 +78,7 @@
                     </div>
                 </div>
                 <div class="option-card">
-                    <img src="img/guerra fria.webp" alt="Opción 4" class="option-image">
+                    <img src={fria} alt="Opción 4" class="option-image">
                     <div class="option-content">
                         <h3>LA GUERRA FRIA </h3>
                         <p>Una batalla sin armas entre dos potencias. Conoce cómo Estados Unidos y la Unión Soviética compitieron en ideología, tecnología y poder, creando una era de tensiones globales que nos afectó a todos.</p>
@@ -78,7 +86,7 @@
                     </div>
                 </div>
                 <div class="option-card">
-                    <img src="img/depresion.png" alt="Opción 5" class="option-image">
+                    <img src={depresion} alt="Opción 5" class="option-image">
                     <div class="option-content">
                         <h3>LA GRAN DEPRESION </h3>
                         <p>La crisis económica que paralizó al mundo. Explora cómo una caída en la bolsa de valores desencadenó una crisis sin precedentes, afectando a millones de personas y dando origen a nuevas políticas.</p>
@@ -86,7 +94,7 @@
                     </div>
                 </div>
                 <div class="option-card">
-                    <img src="img/ramas ed poder.jpg" alt="Opción 6" class="option-image">
+                    <img src={ramas} alt="Opción 6" class="option-image">
                     <div class="option-content">
                         <h3>RAMAS DE PODER PUBLICO </h3>
                         <p>¿Cómo se organiza el poder en Colombia? Aquí descubrirás las tres ramas que lo componen: Ejecutiva, Legislativa y Judicial, y cómo trabajan juntas para dirigir el país.</p>

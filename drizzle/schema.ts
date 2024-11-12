@@ -33,3 +33,11 @@ export const preguntas = sqliteTable("Preguntas", {
 	respuestaCorrecta: text("respuesta_correcta").notNull(),
 });
 
+export const usuarios = sqliteTable("usuarios", {
+	id: integer().primaryKey(),
+	username: text().notNull(),
+	correo: text().notNull(),
+	password: text().notNull(),
+	token: text().notNull(),
+});
+
