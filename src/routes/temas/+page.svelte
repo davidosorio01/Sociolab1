@@ -66,7 +66,7 @@
                     <div class="option-content">
                         <h3>MECANISMOS DE PARTICIPACION</h3>
                         <p>En esta sección, descubrirás las herramientas y espacios que te permiten ser un ciudadano activo. Desde el voto hasta los cabildos abiertos, entenderás cómo influir en las decisiones que construyen nuestro país.</p>
-                        <button class="btn">Entrar</button>
+                        <a href="/examen_mecanismos"><button class="btn">Entrar</button></a>
                     </div>
                 </div>
                 <div class="option-card">

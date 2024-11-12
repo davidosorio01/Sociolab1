@@ -42,7 +42,7 @@
   </header>
   
   <section class="nosotros">
-    <img class="bg-2" src={s2}/>
+    <img class="bg-2" alt="" src={s2}/>
     <div class="nosotros-info container">
       <div class="nosotros-img">
         <img src={gato2} alt="" />
@@ -107,7 +107,7 @@
       <div class="link">
         <h3>Créditos</h3>
         <ul>
-          <li><a href="/"></a></li>
+          <li><a href="/">lore</a></li>
           <li><a href="/">Lore</a></li>
           <li><a href="/">Lore</a></li>
           <li><a href="/">Lore</a></li>

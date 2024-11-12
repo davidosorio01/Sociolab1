@@ -59,7 +59,8 @@ export const actions: Actions = {
 	},
 
 	register: async ({ request }: RequestEvent) => {
-		const data = Object.fromEntries(await request.formData());
+		const data = Object.fromEntries(await request.formData())
+		console.log(data);
 		if (
 			typeof data.correo !== 'string' ||
 			typeof data.password !== 'string' ||
@@ -76,12 +77,13 @@ export const actions: Actions = {
 		}
 		
 		const values = {  
-			username: data.username || "",  
+			username: String(data.username) || "",  
 			correo: data.correo || "",  
 			password: await bcrypt.hash(data.password, 10),  
 			token: crypto.randomUUID()
 		}; 
 		
+		console.log(values)
 		await db.insert(usuarios).values(values);
 		
 		// Redirecciona a la página principal después del registro

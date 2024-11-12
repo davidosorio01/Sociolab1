@@ -235,7 +235,7 @@
 						<label><input type="radio" name="q1" value="b" /> La invasión de Polonia</label>
 						<label
 							><input type="radio" name="q1" value="c" /> El asesinato del archiduque Francisco Fernando
-							(Correcta)</label
+							</label
 						>
 						<label><input type="radio" name="q1" value="d" /> El bombardeo de Pearl Harbor</label>
 					</div>
@@ -253,7 +253,7 @@
 						>
 						<label
 							><input type="radio" name="q2" value="b" /> Aliados: Francia, Reino Unido, Rusia, EE.UU.;
-							Potencias Centrales: Alemania, Austria-Hungría, Imperio Otomano, Bulgaria (Correcta)</label
+							Potencias Centrales: Alemania, Austria-Hungría, Imperio Otomano, Bulgaria </label
 						>
 						<label
 							><input type="radio" name="q2" value="c" /> Aliados: China, EE.UU. y Japón; Potencias Centrales:
@@ -271,7 +271,7 @@
 					<div class="options">
 						<label
 							><input type="radio" name="q3" value="a" required /> Nacionalismo, militarismo, imperialismo
-							y alianzas (Correcta)</label
+							y alianzas </label
 						>
 						<label
 							><input type="radio" name="q3" value="b" /> Carrera espacial, tratados comerciales, conflictos
@@ -296,7 +296,7 @@
 					<div class="options">
 						<label><input type="radio" name="q4" value="a" required /> Guerra de guerrillas</label>
 						<label><input type="radio" name="q4" value="b" /> Combates navales</label>
-						<label><input type="radio" name="q4" value="c" /> Guerra de trincheras (Correcta)</label
+						<label><input type="radio" name="q4" value="c" /> Guerra de trincheras </label
 						>
 						<label><input type="radio" name="q4" value="d" /> Ataques aéreos</label>
 					</div>
@@ -307,7 +307,7 @@
 					<div class="options">
 						<label
 							><input type="radio" name="q5" value="a" required /> Tratado de Versalles; sancionó duramente
-							a Alemania (Correcta)</label
+							a Alemania </label
 						>
 						<label
 							><input type="radio" name="q5" value="b" /> Tratado de Paz de París; otorgó territorios
@@ -336,7 +336,7 @@
 						>
 						<label
 							><input type="radio" name="q6" value="b" /> Crisis económica y devastación en muchos países
-							europeos (Correcta)</label
+							europeos </label
 						>
 						<label
 							><input type="radio" name="q6" value="c" /> Incremento en los recursos disponibles y estabilidad
@@ -365,7 +365,7 @@
 						>
 						<label
 							><input type="radio" name="q7" value="c" /> Porque generaron resentimiento en Alemania,
-							facilitando el ascenso del nazismo (Correcta)</label
+							facilitando el ascenso del nazismo </label
 						>
 						<label
 							><input type="radio" name="q7" value="d" /> Porque crearon buenas relaciones diplomáticas
@@ -386,7 +386,7 @@
 						<label><input type="radio" name="q8" value="b" /> China, Unión Soviética y EE.UU.</label
 						>
 						<label
-							><input type="radio" name="q8" value="c" /> Alemania, Italia y Japón (Correcta)</label
+							><input type="radio" name="q8" value="c" /> Alemania, Italia y Japón </label
 						>
 						<label><input type="radio" name="q8" value="d" /> Alemania, Rusia y Francia</label>
 					</div>
@@ -396,7 +396,7 @@
 					<p>9. ¿Cuál fue el impacto de la rendición de Alemania y Japón en 1945?</p>
 					<div class="options">
 						<label
-							><input type="radio" name="q9" value="a" required /> Inició la Guerra Fría (Correcta)</label
+							><input type="radio" name="q9" value="a" required /> Inició la Guerra Fría </label
 						>
 						<label
 							><input type="radio" name="q9" value="b" /> Puso fin a la Primera Guerra Mundial</label
