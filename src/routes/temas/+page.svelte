@@ -21,10 +21,10 @@
                 <button class="search-button">Buscar</button>
             </div>
         </li>
-        <li><a href="/" class="nav-item">Inicio</a></li>
-        <li><a href="/" class="nav-item">Acerca de</a></li>
-        <li><a href="/" class="nav-item">Servicios</a></li>
-        <li><a href="/" class="nav-item">Contacto</a></li>
+        <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Inicio</a></li>
+        <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Acerca de</a></li>
+        <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Servicios</a></li>
+        <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Contacto</a></li>
        
     </ul>
     <div class="burger">
@@ -82,7 +82,7 @@
                     <div class="option-content">
                         <h3>LA GUERRA FRIA </h3>
                         <p>Una batalla sin armas entre dos potencias. Conoce cómo Estados Unidos y la Unión Soviética compitieron en ideología, tecnología y poder, creando una era de tensiones globales que nos afectó a todos.</p>
-                        <button class="btn">Entrar</button>
+                        <a href="/examen_guerraF"><button class="btn">Entrar</button></a>
                     </div>
                 </div>
                 <div class="option-card">

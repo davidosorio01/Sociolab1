@@ -22,7 +22,7 @@
       <nav class="navbar">
         <ul>
           <li><a href="/login" data-sveltekit-preload-data="tap" data-sveltekit-reload>Inicio de sesión</a></li>
-          <li><a href="#Contactanos">Contáctanos</a></li>
+          <li><a href="#Contactanos" data-sveltekit-preload-data="tap" data-sveltekit-reload>Contáctanos</a></li>
           <li><a href="/sobre_nosotros" data-sveltekit-preload-data="tap" data-sveltekit-reload >Sobre nosotros</a></li>
         </ul>
       </nav>
@@ -61,21 +61,21 @@
       <p>Comunícate con nosotros si tienes dudas o sugerencias</p>
     </div>
     <div class="info-1">
-      <a href="https://api.whatsapp.com/send?phone=573054035509&text=hola">
+      <a href="https://api.whatsapp.com/send?phone=573054035509&text=hola" data-sveltekit-preload-data="tap" data-sveltekit-reload>
         <img src={whatss} alt="" />
       </a>
       <h3>WhatsApp</h3>
       <p>3054035509</p>
     </div>
     <div class="info-1">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.facebook.com/profile.php?id=100087638443777">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.facebook.com/profile.php?id=100087638443777" data-sveltekit-preload-data="tap" data-sveltekit-reload>
         <img src={face} alt="" />
       </a>
       <h3>Facebook</h3>
       <p>@SocioLab</p>
     </div>
     <div class="info-1">
-      <a href="mailto:srguzman260@gmail.com?subject=mas%20informacion&">
+      <a href="mailto:srguzman260@gmail.com?subject=mas%20informacion&" data-sveltekit-preload-data="tap" data-sveltekit-reload>
         <img src={email} alt="" />
       </a>
       <h3>Correo</h3>

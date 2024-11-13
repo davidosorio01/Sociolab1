@@ -12,9 +12,9 @@
     <h4>SOCIOLAB🌎</h4>
     </div>
     <ul class="nav-links">
-        <li><a href="/" class="nav-item">Inicio</a></li>
-        <li><a href="/" class="nav-item">Servicios</a></li>
-        <li><a href="/" class="nav-item">Contacto</a></li>
+        <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Inicio</a></li>
+        <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Servicios</a></li>
+        <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Contacto</a></li>
        
     </ul>
     <div class="burger">
