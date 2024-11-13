@@ -90,7 +90,7 @@
                     <div class="option-content">
                         <h3>LA GRAN DEPRESION </h3>
                         <p>La crisis económica que paralizó al mundo. Explora cómo una caída en la bolsa de valores desencadenó una crisis sin precedentes, afectando a millones de personas y dando origen a nuevas políticas.</p>
-                        <button class="btn">Entrar</button>
+                        <a href="/examen_gran_depresion"><button class="btn">Entrar</button></a>
                     </div>
                 </div>
                 <div class="option-card">
