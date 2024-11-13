@@ -74,7 +74,7 @@
                     <div class="option-content">
                         <h3>TRATADO DE VERSALLES</h3>
                         <p>Un pacto que prometió el fin de la Primera Guerra Mundial, pero terminó sembrando la semilla de nuevas tensiones. Aquí verás sus términos, sus promesas, y el impacto que tuvo en el mapa político mundial.</p>
-                        <button class="btn">Entrar</button>
+                        <a href="/examen_tratadov"><button class="btn">Entrar</button></a>
                     </div>
                 </div>
                 <div class="option-card">

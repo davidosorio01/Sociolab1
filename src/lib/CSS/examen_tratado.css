@@ -6,7 +6,7 @@ body, html {
     font-family: 'Poppins', sans-serif;
     background-color: #f3e5f5;
     min-height: 100vh;
-    background-image:url($lib/IMAGES/img_examen_guerraM/fondo.jpg) ;
+   background-image:url($lib/IMAGES/img_examen_tratado/fondo.jpeg);
 }
 .bg {
     position: absolute;
