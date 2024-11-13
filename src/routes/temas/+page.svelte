@@ -98,7 +98,7 @@
                     <div class="option-content">
                         <h3>RAMAS DE PODER PUBLICO </h3>
                         <p>¿Cómo se organiza el poder en Colombia? Aquí descubrirás las tres ramas que lo componen: Ejecutiva, Legislativa y Judicial, y cómo trabajan juntas para dirigir el país.</p>
-                        <button class="btn">Entrar</button>
+                        <a href="/examen_ramasPoder"><button class="btn">Entrar</button></a>
                     </div>
                 </div>
             </div>
