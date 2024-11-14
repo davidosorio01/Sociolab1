@@ -12,7 +12,7 @@
     </div>
     <ul class="nav-links">
       
-        <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Inicio</a></li>
+        <li><a href="/temas" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Inicio</a></li>
         <li><a href="/sobre_nosotros" data-sveltekit-preload-data="tap" data-sveltekit-reload>nosotros</a></li>
         <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Contacto</a></li>
  
@@ -32,9 +32,7 @@
             <div class="service-card">
                 <img src={imagen1} alt="Diseño Web">
                 <h2>Educacion </h2>
-                
-        
-                <a href="/temas" data-sveltekit-preload-data="tap" data-sveltekit-reload >Creamos sitios web atractivos y funcionales que representan tu marca.</a>
+                <p>Creamos sitios web atractivos y funcionales que representan tu marca.</p>
             </div>
             <div class="service-card">
                 <img src={imgexamen} alt="Desarrollo de Aplicaciones">

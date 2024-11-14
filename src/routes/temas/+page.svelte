@@ -22,8 +22,8 @@
             </div>
         </li>
         <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Inicio</a></li>
-        <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Acerca de</a></li>
-        <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Servicios</a></li>
+        <li><a href="/sobre_nosotros" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Acerca de</a></li>
+        <li><a href="/servicios" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Servicios</a></li>
         <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Contacto</a></li>
        
     </ul>

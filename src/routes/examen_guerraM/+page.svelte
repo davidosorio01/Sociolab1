@@ -18,9 +18,9 @@
 		<h4>SOCIOLAB🌎</h4>
 	</div>
 	<ul class="nav-links">
-		<li><a href="/temas" class="nav-item">Inicio</a></li>
+		<li><a href="/temas" data-sveltekit-preload-data="tap" data-sveltekit-reload class="nav-item">Inicio</a></li>
 		<li><a href="/examen_guerraM" class="nav-item">Nosotros</a></li>
-		<li><a href="#" class="nav-item">Contacto</a></li>
+		<li><a href="/" class="nav-item">Contacto</a></li>
 	</ul>
 	<div class="burger">
 		<div class="line1"></div>
