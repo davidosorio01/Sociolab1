@@ -10,7 +10,7 @@ import type { RequestEvent } from '@sveltejs/kit';
 
 export const load = async ({ locals }) => {
 	if (locals.user) {
-		throw redirect(307, '/servicios'); // Asegúrate de lanzar un error para redireccionar
+		throw redirect(307, '/temas'); // Asegúrate de lanzar un error para redireccionar
 	}
 }
 
@@ -55,7 +55,7 @@ export const actions: Actions = {
 		});
 
 		// Redirecciona al usuario a la página principal
-		throw redirect(302, '/servicios');
+		throw redirect(302, '/temas');
 	},
 
 	register: async ({ request }: RequestEvent) => {
@@ -87,6 +87,6 @@ export const actions: Actions = {
 		await db.insert(usuarios).values(values);
 		
 		// Redirecciona a la página principal después del registro
-		throw redirect(303, '/servicios');
+		throw redirect(303, '/temas');
 	}
 };
