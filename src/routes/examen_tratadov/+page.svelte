@@ -5,6 +5,152 @@
 	import mapa from '$lib/IMAGES/img_examen_tratado/mapa.jpeg';
 	import tratado from '$lib/IMAGES/img_examen_tratado/tratado.webp';
 
+	let nombre = '';
+	let email = '';
+	let respuestas = {}; // Almacenar las respuestas del usuario
+	let correctas = 0;
+	let incorrectas = 0;
+	let mensajeResultado = '';
+	let mostrarResultado = false;
+
+	const preguntas = [
+		{
+			id: 'q1',
+			texto: '¿Cuándo fue firmado el Tratado de Versalles?',
+			opciones: {
+				a: '28 de junio de 1914',
+				b: '28 de junio de 1919',
+				c: '28 de junio de 1923',
+				d: '28 de junio de 1939'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q2',
+			texto: '¿Qué evento desencadenó la Primera Guerra Mundial?',
+			opciones: {
+				a: 'La firma del Tratado de Versalles',
+				b: 'La unificación de Alemania',
+				c: 'El asesinato del archiduque Francisco Fernando',
+				d: 'La creación de la Sociedad de Naciones'
+			},
+			correcta: 'c'
+		},
+		{
+			id: 'q3',
+			texto: 'Uno de los objetivos del Tratado de Versalles era:',
+			opciones: {
+				a: 'Fortalecer a Alemania militarmente',
+				b: 'Mantener la paz a largo plazo sin restricciones',
+				c: 'Debilitar a Alemania militarmente',
+				d: 'Colonizar nuevas regiones'
+			},
+			correcta: 'c'
+		},
+		{
+			id: 'q4',
+			texto: '¿Cuál de las siguientes fue una consecuencia económica del Tratado de Versalles?',
+			opciones: {
+				a: 'Éxito económico inmediato en Alemania',
+				b: 'Hiperinflación masiva en 1923',
+				c: 'Crecimiento de la economía francesa',
+				d: 'Estabilidad financiera en Europa'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q5',
+			texto: '¿Qué cláusula se incluyó en el Tratado en relación con Alemania?',
+			opciones: {
+				a: 'Cláusula de neutralidad',
+				b: 'Cláusula de culpabilidad de guerra',
+				c: 'Cláusula de colaboración',
+				d: 'Cláusula de paz eterna'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q6',
+			texto: '¿Qué organización se creó como parte del esfuerzo de corrección diplomática?',
+			opciones: {
+				a: 'La OTAN',
+				b: 'La Sociedad de Naciones',
+				c: 'La Liga de las Naciones',
+				d: 'La Conferencia de París'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q7',
+			texto:
+				'¿Cuál fue una de las principales demandas de los aliados hacia Alemania tras la guerra?',
+			opciones: {
+				a: 'Reparaciones económicas',
+				b: 'Alianzas militares',
+				c: 'Redistribución de colonias',
+				d: 'Ampliación territorial'
+			},
+			correcta: 'a'
+		},
+		{
+			id: 'q8',
+			texto: '¿Qué estados emergieron o se fortalecieron tras el Tratado de Versalles?',
+			opciones: {
+				a: 'Austria y Hungría',
+				b: 'Polonia, Checoslovaquia y Yugoslavia',
+				c: 'Alemania y Francia',
+				d: 'Italia y España'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q9',
+			texto: '¿Qué sentimiento prevaleció en Alemania tras la imposición del tratado?',
+			opciones: {
+				a: 'Orgullo nacional',
+				b: 'Alegría por la paz',
+				c: 'Humillación y resentimiento',
+				d: 'Indiferencia'
+			},
+			correcta: 'c'
+		},
+		{
+			id: 'q10',
+			texto: '¿Qué limitación fue impuesta a Alemania en el tratado?',
+			opciones: {
+				a: 'Prohibición de trade',
+				b: 'Limitación del tamaño de su ejército',
+				c: 'Prohibición de alianzas',
+				d: 'Restricción de la industria cultural'
+			},
+			correcta: 'b'
+		}
+	];
+
+	function enviarExamen(event) {
+		event.preventDefault();
+		correctas = 0;
+		incorrectas = 0;
+
+		preguntas.forEach(({ id, correcta }) => {
+			if (respuestas[id] === correcta) {
+				correctas++;
+			} else {
+				incorrectas++;
+			}
+		});
+
+		mensajeResultado = `
+            Nombre: ${nombre}
+            Correo: ${email}
+
+            Correctas: ${correctas}
+            Incorrectas: ${incorrectas}
+        `;
+
+		mostrarResultado = true;
+	}
+
 	let activeTab = 'video';
 
 	function openTab(tab) {
@@ -17,7 +163,11 @@
 		<h4>SOCIOLAB🌎</h4>
 	</div>
 	<ul class="nav-links">
-		<li><a href="/temas" data-sveltekit-preload-data="tap" data-sveltekit-reload  class="nav-item">Inicio</a></li>
+		<li>
+			<a href="/temas" data-sveltekit-preload-data="tap" data-sveltekit-reload class="nav-item"
+				>Inicio</a
+			>
+		</li>
 		<li><a href="/sobre_nosotros" class="nav-item">nosotros</a></li>
 		<li><a href="/" class="nav-item">Contacto</a></li>
 	</ul>
@@ -240,155 +390,43 @@
 
 	{#if activeTab === 'examen'}
 		<div class="tab-content active">
-			<h2 style="text-align: center;">Examen de Opción Múltiple</h2>
-			<form id="examForm">
-				<label for="nombre">Nombre:</label>
-				<input type="text" id="nombre" name="nombre" required />
+			{#if !mostrarResultado}
+				<form on:submit={enviarExamen}>
+					<label for="nombre">Nombre:</label>
+					<input type="text" id="nombre" bind:value={nombre} required />
 
-				<label for="email">Correo Electrónico:</label>
-				<input type="email" id="email" name="email" required />
-				<div class="question">
-					<div class="question">
-						<p>1. ¿Cuándo fue firmado el Tratado de Versalles?</p>
-						<div class="options">
-							<label><input type="radio" name="q1" value="a" required /> 28 de junio de 1914</label>
-							<label><input type="radio" name="q1" value="b" /> 28 de junio de 1919</label>
-							<label><input type="radio" name="q1" value="c" /> 28 de junio de 1923</label>
-							<label><input type="radio" name="q1" value="d" /> 28 de junio de 1939</label>
-						</div>
-					</div>
+					<label for="email">Correo Electrónico:</label>
+					<input type="email" id="email" bind:value={email} required />
 
-					<div class="question">
-						<p>2. ¿Qué evento desencadenó la Primera Guerra Mundial?</p>
-						<div class="options">
-							<label
-								><input type="radio" name="q2" value="a" required /> La firma del Tratado de Versalles</label
-							>
-							<label><input type="radio" name="q2" value="b" /> La unificación de Alemania</label>
-							<label
-								><input type="radio" name="q2" value="c" /> El asesinato del archiduque Francisco Fernando</label
-							>
-							<label
-								><input type="radio" name="q2" value="d" /> La creación de la Sociedad de Naciones</label
-							>
+					{#each preguntas as { id, texto, opciones }, index}
+						<div class="question">
+							<p>{index + 1}. {texto}</p>
+							<div class="options">
+								{#each Object.entries(opciones) as [key, value]}
+									<label>
+										<input
+											type="radio"
+											name={id}
+											value={key}
+											bind:group={respuestas[id]}
+											required
+										/>
+										{value}
+									</label>
+								{/each}
+							</div>
 						</div>
-					</div>
+					{/each}
 
-					<div class="question">
-						<p>3. Uno de los objetivos del Tratado de Versalles era:</p>
-						<div class="options">
-							<label
-								><input type="radio" name="q3" value="a" required /> Fortalecer a Alemania militarmente</label
-							>
-							<label
-								><input type="radio" name="q3" value="b" /> Mantener la paz a largo plazo sin restricciones</label
-							>
-							<label
-								><input type="radio" name="q3" value="c" /> Debilitar a Alemania militarmente</label
-							>
-							<label><input type="radio" name="q3" value="d" /> Colonizar nuevas regiones</label>
-						</div>
-					</div>
-
-					<div class="question">
-						<p>
-							4. ¿Cuál de las siguientes fue una consecuencia económica del Tratado de Versalles?
-						</p>
-						<div class="options">
-							<label
-								><input type="radio" name="q4" value="a" required /> Éxito económico inmediato en Alemania</label
-							>
-							<label><input type="radio" name="q4" value="b" /> Hiperinflación masiva en 1923</label
-							>
-							<label
-								><input type="radio" name="q4" value="c" /> Crecimiento de la economía francesa</label
-							>
-							<label
-								><input type="radio" name="q4" value="d" /> Estabilidad financiera en Europa</label
-							>
-						</div>
-					</div>
-
-					<div class="question">
-						<p>5. ¿Qué cláusula se incluyó en el Tratado en relación con Alemania?</p>
-						<div class="options">
-							<label
-								><input type="radio" name="q5" value="a" required /> Cláusula de neutralidad</label
-							>
-							<label
-								><input type="radio" name="q5" value="b" /> Cláusula de culpabilidad de guerra</label
-							>
-							<label><input type="radio" name="q5" value="c" /> Cláusula de colaboración</label>
-							<label><input type="radio" name="q5" value="d" /> Cláusula de paz eterna</label>
-						</div>
-					</div>
-
-					<div class="question">
-						<p>6. ¿Qué organización se creó como parte del esfuerzo de corrección diplomática?</p>
-						<div class="options">
-							<label><input type="radio" name="q6" value="a" required /> La OTAN</label>
-							<label><input type="radio" name="q6" value="b" /> La Sociedad de Naciones</label>
-							<label><input type="radio" name="q6" value="c" /> La Liga de las Naciones</label>
-							<label><input type="radio" name="q6" value="d" /> La Conferencia de París</label>
-						</div>
-					</div>
-
-					<div class="question">
-						<p>
-							7. ¿Cuál fue una de las principales demandas de los aliados hacia Alemania tras la
-							guerra?
-						</p>
-						<div class="options">
-							<label
-								><input type="radio" name="q7" value="a" required /> Reparaciones económicas</label
-							>
-							<label><input type="radio" name="q7" value="b" /> Alianzas militares</label>
-							<label><input type="radio" name="q7" value="c" /> Redistribución de colonias</label>
-							<label><input type="radio" name="q7" value="d" /> Ampliación territorial</label>
-						</div>
-					</div>
-
-					<div class="question">
-						<p>8. ¿Qué estados emergieron o se fortalecieron tras el Tratado de Versalles?</p>
-						<div class="options">
-							<label><input type="radio" name="q8" value="a" required /> Austria y Hungría</label>
-							<label
-								><input type="radio" name="q8" value="b" /> Polonia, Checoslovaquia y Yugoslavia</label
-							>
-							<label><input type="radio" name="q8" value="c" /> Alemania y Francia</label>
-							<label><input type="radio" name="q8" value="d" /> Italia y España</label>
-						</div>
-					</div>
-
-					<div class="question">
-						<p>9. ¿Qué sentimiento prevaleció en Alemania tras la imposición del tratado?</p>
-						<div class="options">
-							<label><input type="radio" name="q9" value="a" required /> Orgullo nacional</label>
-							<label><input type="radio" name="q9" value="b" /> Alegría por la paz</label>
-							<label><input type="radio" name="q9" value="c" /> Humillación y resentimiento</label>
-							<label><input type="radio" name="q9" value="d" /> Indiferencia</label>
-						</div>
-					</div>
-
-					<div class="question">
-						<p>10. ¿Qué limitación fue impuesta a Alemania en el tratado?</p>
-						<div class="options">
-							<label
-								><input type="radio" name="q10" value="a" required /> Prohibición de trade</label
-							>
-							<label
-								><input type="radio" name="q10" value="b" /> Limitación del tamaño de su ejército</label
-							>
-							<label><input type="radio" name="q10" value="c" /> Prohibición de alianzas</label>
-							<label
-								><input type="radio" name="q10" value="d" /> Restricción de la industria cultural</label
-							>
-						</div>
-					</div>
+					<button type="submit">Enviar Examen</button>
+				</form>
+			{:else}
+				<div>
+					<h2>Resultados del Examen</h2>
+					<pre>{mensajeResultado}</pre>
+					<button on:click={() => (mostrarResultado = false)}>Volver</button>
 				</div>
-
-				<button type="submit">Enviar Examen</button>
-			</form>
+			{/if}
 		</div>
 	{/if}
 </div>

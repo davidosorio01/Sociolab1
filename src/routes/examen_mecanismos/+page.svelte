@@ -2,18 +2,171 @@
 	import '$lib/CSS/examen_mecanismos.css';
 	let activeTab = 'video';
 
+	let nombre = '';
+	let email = '';
+	let respuestas = {}; // Almacenar las respuestas del usuario
+	let correctas = 0;
+	let incorrectas = 0;
+	let mensajeResultado = '';
+	let mostrarResultado = false;
+
+	const preguntas = [
+		{
+			id: 'q1',
+			texto:
+				'¿Cuál de los siguientes mecanismos de participación permite a los ciudadanos votar sobre una decisión importante?',
+			opciones: {
+				a: 'Consulta Popular',
+				b: 'Iniciativa Legislativa Popular',
+				c: 'Cabildo Abierto',
+				d: 'Presupuestos Participativos'
+			},
+			correcta: 'a'
+		},
+		{
+			id: 'q2',
+			texto:
+				'¿Qué mecanismo permite a los ciudadanos proponer cambios a las leyes recolectando firmas?',
+			opciones: {
+				a: 'Referendo',
+				b: 'Revocatoria del Mandato',
+				c: 'Iniciativa Legislativa Popular',
+				d: 'Consulta Popular'
+			},
+			correcta: 'c'
+		},
+		{
+			id: 'q3',
+			texto: 'Las consultas populares son utilizadas principalmente para:',
+			opciones: {
+				a: 'Proponer nuevas leyes',
+				b: 'Expresar opiniones sobre decisiones locales o nacionales',
+				c: 'Discutir el presupuesto municipal',
+				d: 'Elegir representantes políticos'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q4',
+			texto:
+				'¿Cuál de los siguientes mecanismos busca destituir a un funcionario electo antes de que termine su mandato?',
+			opciones: {
+				a: 'Cabildo Abierto',
+				b: 'Iniciativa Legislativa Popular',
+				c: 'Revocatoria del Mandato',
+				d: 'Consulta Popular'
+			},
+			correcta: 'c'
+		},
+		{
+			id: 'q5',
+			texto: 'Los cabildos abiertos son espacios donde:',
+			opciones: {
+				a: 'Solo se presentan proyectos de ley',
+				b: 'La ciudadanía discute temas de interés con las autoridades',
+				c: 'Se realizan elecciones generales',
+				d: 'Se vota en referendos'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q6',
+			texto:
+				'Caso: Propuestas para mejorar el sistema educativo. Un grupo de padres y maestros está preocupado por la calidad de la educación. Desean implementar cambios en el sistema educativo y buscan la manera más efectiva de hacerlo. ¿Cuál es el mecanismo adecuado?',
+			opciones: {
+				a: 'Iniciativa Legislativa Popular (proponer una nueva ley)',
+				b: 'Consulta Popular (preguntar a la ciudadanía si apoyan los cambios)',
+				c: 'Cabildo Abierto (discutir directamente con las autoridades educativas)',
+				d: 'Revocatoria del Mandato (intentar destituir a un funcionario)'
+			},
+			correcta: 'a'
+		},
+		{
+			id: 'q7',
+			texto:
+				'Caso: Críticas a la gestión del alcalde. Un alcalde ha recibido duras críticas de los ciudadanos por su gestión y un grupo quiere intentar destituirlo antes de que finalice su mandato. ¿Cuál es el mecanismo adecuado?',
+			opciones: {
+				a: 'Revocatoria del Mandato',
+				b: 'Cabildo Abierto',
+				c: 'Consulta Popular',
+				d: 'Referendo'
+			},
+			correcta: 'a'
+		},
+		{
+			id: 'q8',
+			texto:
+				'Caso: Proyecto de construcción en la comunidad. La comunidad está preocupada por un nuevo proyecto de construcción que afectará su entorno. Desean expresar su opinión sobre el mismo. ¿Cuál es el mecanismo adecuado?',
+			opciones: {
+				a: 'Cabildo Abierto (discutir con las autoridades locales)',
+				b: 'Consulta Popular (votar sobre si están de acuerdo o en contra)',
+				c: 'Iniciativa Legislativa Popular (proponer una ley de protección)',
+				d: 'Presupuestos Participativos (decidir cómo se asigna el presupuesto)'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q9',
+			texto:
+				'Caso: Decidir sobre el uso del presupuesto municipal. La municipalidad tiene un nuevo presupuesto y desea saber cómo la comunidad quiere invertir una parte del mismo en mejoras locales. ¿Cuál es el mecanismo adecuado?',
+			opciones: {
+				a: 'Presupuestos Participativos (decidir en qué proyectos invertir)',
+				b: 'Cabildo Abierto (discutir y proponer proyectos)',
+				c: 'Consulta Popular (votar sobre diversas opciones)',
+				d: 'Plebiscito (para decidir sobre un asunto específico)'
+			},
+			correcta: 'a'
+		},
+		{
+			id: 'q10',
+			texto:
+				'Caso: Influencia en elecciones locales. Un grupo de ciudadanos desea asegurarse de que sus voces se escuchen en la elección de sus representantes locales y pretenden expresar su opinión sobre quién debería ser elegido. ¿Cuál es el mecanismo adecuado?',
+			opciones: {
+				a: 'Voto (participar en la elección)',
+				b: 'Cabildo Abierto (discutir con la comunidad sobre los candidatos)',
+				c: 'Referendo (para decidir sobre un tema específico)',
+				d: 'Consulta Popular (preguntar sobre candidatos)'
+			},
+			correcta: 'a'
+		}
+	];
+
+	function enviarExamen(event) {
+		event.preventDefault();
+		correctas = 0;
+		incorrectas = 0;
+
+		preguntas.forEach(({ id, correcta }) => {
+			if (respuestas[id] === correcta) {
+				correctas++;
+			} else {
+				incorrectas++;
+			}
+		});
+
+		mensajeResultado = `
+            Nombre: ${nombre}
+            Correo: ${email}
+
+            Correctas: ${correctas}
+            Incorrectas: ${incorrectas}
+        `;
+
+		mostrarResultado = true;
+	}
+
 	function openTab(tab) {
 		activeTab = tab;
 	}
 
-    import voto from '$lib/IMAGES/img_examen_mecanismo/voto.webp'
-    import referendo from '$lib/IMAGES/img_examen_mecanismo/referendo.webp'
-    import plebicito from '$lib/IMAGES/img_examen_mecanismo/plebiscito.jpg'
-    import iniciativa from '$lib/IMAGES/img_examen_mecanismo/Iniciativa-Populaer.jpg'
-    import popular from '$lib/IMAGES/img_examen_mecanismo/propuesta_consulta_popular.jpg'
-    import cabildo from '$lib/IMAGES/img_examen_mecanismo/cabildo.jpg'
-    import revocatoria from '$lib/IMAGES/img_examen_mecanismo/revocatoria.jpeg'
-    import participativo from '$lib/IMAGES/img_examen_mecanismo/presupuestoparticipativo.jpeg'
+	import voto from '$lib/IMAGES/img_examen_mecanismo/voto.webp';
+	import referendo from '$lib/IMAGES/img_examen_mecanismo/referendo.webp';
+	import plebicito from '$lib/IMAGES/img_examen_mecanismo/plebiscito.jpg';
+	import iniciativa from '$lib/IMAGES/img_examen_mecanismo/Iniciativa-Populaer.jpg';
+	import popular from '$lib/IMAGES/img_examen_mecanismo/propuesta_consulta_popular.jpg';
+	import cabildo from '$lib/IMAGES/img_examen_mecanismo/cabildo.jpg';
+	import revocatoria from '$lib/IMAGES/img_examen_mecanismo/revocatoria.jpeg';
+	import participativo from '$lib/IMAGES/img_examen_mecanismo/presupuestoparticipativo.jpeg';
 </script>
 
 <nav class="navbar">
@@ -21,8 +174,12 @@
 		<h4>SOCIOLAB🌎</h4>
 	</div>
 	<ul class="nav-links">
-		<li><a href="/temas" data-sveltekit-preload-data="tap" data-sveltekit-reload  class="nav-item">Inicio</a></li>
-		<li><a href="/sobre_nosotros"class="nav-item">nosotros</a></li>
+		<li>
+			<a href="/temas" data-sveltekit-preload-data="tap" data-sveltekit-reload class="nav-item"
+				>Inicio</a
+			>
+		</li>
+		<li><a href="/sobre_nosotros" class="nav-item">nosotros</a></li>
 		<li><a href="/" class="nav-item">Contacto</a></li>
 	</ul>
 	<div class="burger">
@@ -73,11 +230,7 @@
 				</p>
 
 				<div class="image-placeholder">
-					<img
-						src={voto}
-						alt="Personas votando en elecciones"
-						style="width:100%; height:auto;"
-					/>
+					<img src={voto} alt="Personas votando en elecciones" style="width:100%; height:auto;" />
 				</div>
 
 				<h2>1. Voto</h2>
@@ -125,11 +278,7 @@
 
 				<!-- Imagen del plebiscito -->
 				<div class="image-placeholder">
-					<img
-						src={plebicito}
-						alt="Votación en un plebiscito"
-						style="width:100%; height:auto;"
-					/>
+					<img src={plebicito} alt="Votación en un plebiscito" style="width:100%; height:auto;" />
 				</div>
 
 				<h2>3. Plebiscito</h2>
@@ -280,208 +429,44 @@
 	{/if}
 
 	{#if activeTab === 'examen'}
-		<div id="examen" class="tab-content active">
-			<h2 style="text-align: center;">Examen de Opción Múltiple</h2>
-			<form id="examForm">
-				<label for="nombre">Nombre:</label>
-				<input type="text" id="nombre" name="nombre" required />
+		<div class="tab-content active">
+			{#if !mostrarResultado}
+				<form on:submit={enviarExamen}>
+					<label for="nombre">Nombre:</label>
+					<input type="text" id="nombre" bind:value={nombre} required />
 
-				<label for="email">Correo Electrónico:</label>
-				<input type="email" id="email" name="email" required />
+					<label for="email">Correo Electrónico:</label>
+					<input type="email" id="email" bind:value={email} required />
 
-				<div class="question">
-					<p>
-						1. ¿Cuál de los siguientes mecanismos de participación permite a los ciudadanos votar
-						sobre una decisión importante?
-					</p>
-					<div class="options">
-						<label><input type="radio" name="q1" value="a" required /> Consulta Popular</label>
-						<label><input type="radio" name="q1" value="b" /> Iniciativa Legislativa Popular</label>
-						<label><input type="radio" name="q1" value="c" /> Cabildo Abierto</label>
-						<label><input type="radio" name="q1" value="d" /> Presupuestos Participativos</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>
-						2. ¿Qué mecanismo permite a los ciudadanos proponer cambios a las leyes recolectando
-						firmas?
-					</p>
-					<div class="options">
-						<label><input type="radio" name="q2" value="a" required /> Referendo</label>
-						<label><input type="radio" name="q2" value="b" /> Revocatoria del Mandato</label>
-						<label><input type="radio" name="q2" value="c" /> Iniciativa Legislativa Popular</label>
-						<label><input type="radio" name="q2" value="d" /> Consulta Popular</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>3. Las consultas populares son utilizadas principalmente para:</p>
-					<div class="options">
-						<label><input type="radio" name="q3" value="a" required /> Proponer nuevas leyes</label>
-						<label
-							><input type="radio" name="q3" value="b" /> Expresar opiniones sobre decisiones locales
-							o nacionales</label
-						>
-						<label
-							><input type="radio" name="q3" value="c" /> Discutir el presupuesto municipal</label
-						>
-						<label><input type="radio" name="q3" value="d" /> Elegir representantes políticos</label
-						>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>
-						4. ¿Cuál de los siguientes mecanismos busca destituir a un funcionario electo antes de
-						que termine su mandato?
-					</p>
-					<div class="options">
-						<label><input type="radio" name="q4" value="a" required /> Cabildo Abierto</label>
-						<label><input type="radio" name="q4" value="b" /> Iniciativa Legislativa Popular</label>
-						<label><input type="radio" name="q4" value="c" /> Revocatoria del Mandato</label>
-						<label><input type="radio" name="q4" value="d" /> Consulta Popular</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>5. Los cabildos abiertos son espacios donde:</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q5" value="a" required /> Solo se presentan proyectos de ley</label
-						>
-						<label
-							><input type="radio" name="q5" value="b" /> La ciudadanía discute temas de interés con
-							las autoridades</label
-						>
-						<label
-							><input type="radio" name="q5" value="c" /> Se realizan elecciones generales</label
-						>
-						<label><input type="radio" name="q5" value="d" /> Se vota en referendos</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>
-						6. Caso: Propuestas para mejorar el sistema educativo. Un grupo de padres y maestros
-						está preocupado por la calidad de la educación. Desean implementar cambios en el sistema
-						educativo y buscan la manera más efectiva de hacerlo.
-					</p>
-					<p>¿Cuál es el mecanismo adecuado?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q1" value="a" required /> Iniciativa Legislativa Popular (proponer
-							una nueva ley)</label
-						>
-						<label
-							><input type="radio" name="q1" value="b" /> Consulta Popular (preguntar a la ciudadanía
-							si apoyan los cambios)</label
-						>
-						<label
-							><input type="radio" name="q1" value="c" /> Cabildo Abierto (discutir directamente con
-							las autoridades educativas)</label
-						>
-						<label
-							><input type="radio" name="q1" value="d" /> Revocatoria del Mandato (intentar destituir
-							a un funcionario)</label
-						>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>
-						7. Caso: Críticas a la gestión del alcalde. Un alcalde ha recibido duras críticas de los
-						ciudadanos por su gestión y un grupo quiere intentar destituirlo antes de que finalice
-						su mandato.
-					</p>
-					<p>¿Cuál es el mecanismo adecuado?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q2" value="a" required /> Revocatoria del Mandato</label
-						>
-						<label><input type="radio" name="q2" value="b" /> Cabildo Abierto</label>
-						<label><input type="radio" name="q2" value="c" /> Consulta Popular</label>
-						<label><input type="radio" name="q2" value="d" /> Referendo</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>
-						8. Caso: Proyecto de construcción en la comunidad. La comunidad está preocupada por un
-						nuevo proyecto de construcción que afectará su entorno. Desean expresar su opinión sobre
-						el mismo.
-					</p>
-					<p>¿Cuál es el mecanismo adecuado?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q3" value="a" required /> Cabildo Abierto (discutir con las
-							autoridades locales)</label
-						>
-						<label
-							><input type="radio" name="q3" value="b" /> Consulta Popular (votar sobre si están de acuerdo
-							o en contra)</label
-						>
-						<label
-							><input type="radio" name="q3" value="c" /> Iniciativa Legislativa Popular (proponer una
-							ley de protección)</label
-						>
-						<label
-							><input type="radio" name="q3" value="d" /> Presupuestos Participativos (decidir cómo se
-							asigna el presupuesto)</label
-						>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>
-						9. Caso: Decidir sobre el uso del presupuesto municipal. La municipalidad tiene un nuevo
-						presupuesto y desea saber cómo la comunidad quiere invertir una parte del mismo en
-						mejoras locales.
-					</p>
-					<p>¿Cuál es el mecanismo adecuado?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q4" value="a" required /> Presupuestos Participativos (decidir
-							en qué proyectos invertir)</label
-						>
-						<label
-							><input type="radio" name="q4" value="b" /> Cabildo Abierto (discutir y proponer proyectos)</label
-						>
-						<label
-							><input type="radio" name="q4" value="c" /> Consulta Popular (votar sobre diversas opciones)</label
-						>
-						<label
-							><input type="radio" name="q4" value="d" /> Plebiscito (para decidir sobre un asunto específico)</label
-						>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>
-						10. Caso: Influencia en elecciones locales. Un grupo de ciudadanos desea asegurarse de
-						que sus voces se escuchen en la elección de sus representantes locales y pretenden
-						expresar su opinión sobre quién debería ser elegido.
-					</p>
-					<p>¿Cuál es el mecanismo adecuado?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q5" value="a" required /> Voto (participar en la elección)</label
-						>
-						<label
-							><input type="radio" name="q5" value="b" /> Cabildo Abierto (discutir con la comunidad
-							sobre los candidatos)</label
-						>
-						<label
-							><input type="radio" name="q5" value="c" /> Referendo (para decidir sobre un tema específico)</label
-						>
-						<label
-							><input type="radio" name="q5" value="d" /> Consulta Popular (preguntar sobre candidatos)</label
-						>
-					</div>
+					{#each preguntas as { id, texto, opciones }, index}
+						<div class="question">
+							<p>{index + 1}. {texto}</p>
+							<div class="options">
+								{#each Object.entries(opciones) as [key, value]}
+									<label>
+										<input
+											type="radio"
+											name={id}
+											value={key}
+											bind:group={respuestas[id]}
+											required
+										/>
+										{value}
+									</label>
+								{/each}
+							</div>
+						</div>
+					{/each}
 
 					<button type="submit">Enviar Examen</button>
+				</form>
+			{:else}
+				<div>
+					<h2>Resultados del Examen</h2>
+					<pre>{mensajeResultado}</pre>
+					<button on:click={() => (mostrarResultado = false)}>Volver</button>
 				</div>
-			</form>
+			{/if}
 		</div>
 	{/if}
 </div>

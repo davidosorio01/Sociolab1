@@ -2,15 +2,165 @@
 	import '$lib/CSS/examen_guerraM.css';
 	let activeTab = 'video';
 
+	let nombre = '';
+	let email = '';
+	let respuestas = {}; // Almacenar las respuestas del usuario
+	let correctas = 0;
+	let incorrectas = 0;
+	let mensajeResultado = '';
+	let mostrarResultado = false;
+
+	const preguntas = [
+		{
+			id: 'q1',
+			texto: '¿Qué evento desencadenó la Primera Guerra Mundial en 1914?',
+			opciones: {
+				a: 'La firma del Tratado de Versalles',
+				b: 'La invasión de Polonia',
+				c: 'El asesinato del archiduque Francisco Fernando',
+				d: 'El bombardeo de Pearl Harbor'
+			},
+			correcta: 'c'
+		},
+		{
+			id: 'q2',
+			texto:
+				'¿Qué potencias integraban la alianza de los Aliados y las Potencias Centrales en la Primera Guerra Mundial?',
+			opciones: {
+				a: 'Aliados: Alemania, Japón y Rusia; Potencias Centrales: Francia, Reino Unido y Estados Unidos',
+				b: 'Aliados: Francia, Reino Unido, Rusia, EE.UU.; Potencias Centrales: Alemania, Austria-Hungría, Imperio Otomano, Bulgaria',
+				c: 'Aliados: China, EE.UU. y Japón; Potencias Centrales: Alemania y Rusia',
+				d: 'Aliados: Austria-Hungría, Alemania y Rusia; Potencias Centrales: Francia, EE.UU. y Reino Unido'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q3',
+			texto: '¿Cuáles fueron las principales causas de la Primera Guerra Mundial?',
+			opciones: {
+				a: 'Nacionalismo, militarismo, imperialismo y alianzas',
+				b: 'Carrera espacial, tratados comerciales, conflictos civiles y avances tecnológicos',
+				c: 'Expansión de la Liga de Naciones, guerra fría, descolonización y competencia económica',
+				d: 'Crecimiento del socialismo, colonización de África y acuerdos de paz'
+			},
+			correcta: 'a'
+		},
+		{
+			id: 'q4',
+			texto:
+				'¿Qué tipo de combate predominó en el Frente Occidental durante la Primera Guerra Mundial?',
+			opciones: {
+				a: 'Guerra de guerrillas',
+				b: 'Combates navales',
+				c: 'Guerra de trincheras',
+				d: 'Ataques aéreos'
+			},
+			correcta: 'c'
+		},
+		{
+			id: 'q5',
+			texto: '¿Qué tratado puso fin a la Primera Guerra Mundial y cómo afectó a Alemania?',
+			opciones: {
+				a: 'Tratado de Versalles; sancionó duramente a Alemania',
+				b: 'Tratado de Paz de París; otorgó territorios a Alemania',
+				c: 'Tratado de Núremberg; promovió la reconstrucción alemana',
+				d: 'Tratado de Tordesillas; dividió el continente americano'
+			},
+			correcta: 'a'
+		},
+		{
+			id: 'q6',
+			texto:
+				'¿Cuáles fueron las consecuencias económicas de la Primera Guerra Mundial para los países europeos?',
+			opciones: {
+				a: 'Prosperidad y crecimiento económico en toda Europa',
+				b: 'Crisis económica y devastación en muchos países europeos',
+				c: 'Incremento en los recursos disponibles y estabilidad política',
+				d: 'Aumento en la inversión extranjera y reducción de deudas'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q7',
+			texto:
+				'¿Por qué el Tratado de Versalles y la humillación impuesta a Alemania se consideran causas de la Segunda Guerra Mundial?',
+			opciones: {
+				a: 'Porque promovieron la paz entre los países europeos',
+				b: 'Porque fortalecieron la economía y las fuerzas militares de Alemania',
+				c: 'Porque generaron resentimiento en Alemania, facilitando el ascenso del nazismo',
+				d: 'Porque crearon buenas relaciones diplomáticas entre Alemania y Francia'
+			},
+			correcta: 'c'
+		},
+		{
+			id: 'q8',
+			texto:
+				'¿Qué países formaban parte de las Potencias del Eje durante la Segunda Guerra Mundial?',
+			opciones: {
+				a: 'Reino Unido, Francia y Estados Unidos',
+				b: 'China, Unión Soviética y EE.UU.',
+				c: 'Alemania, Italia y Japón',
+				d: 'Alemania, Rusia y Francia'
+			},
+			correcta: 'c'
+		},
+		{
+			id: 'q9',
+			texto: '¿Cuál fue el impacto de la rendición de Alemania y Japón en 1945?',
+			opciones: {
+				a: 'Inició la Guerra Fría',
+				b: 'Puso fin a la Primera Guerra Mundial',
+				c: 'Comenzó la Revolución Industrial',
+				d: 'Estableció la Liga de Naciones'
+			},
+			correcta: 'a'
+		},
+		{
+			id: 'q10',
+			texto:
+				'¿Qué organismo internacional se creó tras la Segunda Guerra Mundial con el fin de mantener la paz global?',
+			opciones: {
+				a: 'La Liga de Naciones',
+				b: 'La OTAN',
+				c: 'La ONU',
+				d: 'La Comunidad Europea'
+			},
+			correcta: 'c'
+		}
+	];
+
+	function enviarExamen(event) {
+		event.preventDefault();
+		correctas = 0;
+		incorrectas = 0;
+
+		preguntas.forEach(({ id, correcta }) => {
+			if (respuestas[id] === correcta) {
+				correctas++;
+			} else {
+				incorrectas++;
+			}
+		});
+
+		mensajeResultado = `
+            Nombre: ${nombre}
+            Correo: ${email}
+
+            Correctas: ${correctas}
+            Incorrectas: ${incorrectas}
+        `;
+
+		mostrarResultado = true;
+	}
+
 	function openTab(tab) {
 		activeTab = tab;
 	}
 
-    import mapa from '$lib/IMAGES/img_examen_guerraM/mapa.jpg'
-    import trinchera from '$lib/IMAGES/img_examen_guerraM/trinchera.jpg'
-    import aliados from '$lib/IMAGES/img_examen_guerraM/Aliados.jpg'
-    import batalla from '$lib/IMAGES/img_examen_guerraM/batalla.jpg'
-
+	import mapa from '$lib/IMAGES/img_examen_guerraM/mapa.jpg';
+	import trinchera from '$lib/IMAGES/img_examen_guerraM/trinchera.jpg';
+	import aliados from '$lib/IMAGES/img_examen_guerraM/Aliados.jpg';
+	import batalla from '$lib/IMAGES/img_examen_guerraM/batalla.jpg';
 </script>
 
 <nav class="navbar">
@@ -18,7 +168,11 @@
 		<h4>SOCIOLAB🌎</h4>
 	</div>
 	<ul class="nav-links">
-		<li><a href="/temas" data-sveltekit-preload-data="tap" data-sveltekit-reload class="nav-item">Inicio</a></li>
+		<li>
+			<a href="/temas" data-sveltekit-preload-data="tap" data-sveltekit-reload class="nav-item"
+				>Inicio</a
+			>
+		</li>
 		<li><a href="/examen_guerraM" class="nav-item">Nosotros</a></li>
 		<li><a href="/" class="nav-item">Contacto</a></li>
 	</ul>
@@ -218,211 +372,43 @@
 
 	{#if activeTab === 'examen'}
 		<div class="tab-content active">
-			<h2 style="text-align: center;">Examen de Opción Múltiple</h2>
-			<form id="examForm">
-				<label for="nombre">Nombre:</label>
-				<input type="text" id="nombre" name="nombre" required />
+			{#if !mostrarResultado}
+				<form on:submit={enviarExamen}>
+					<label for="nombre">Nombre:</label>
+					<input type="text" id="nombre" bind:value={nombre} required />
 
-				<label for="email">Correo Electrónico:</label>
-				<input type="email" id="email" name="email" required />
+					<label for="email">Correo Electrónico:</label>
+					<input type="email" id="email" bind:value={email} required />
 
-				<div class="question">
-					<p>1. ¿Qué evento desencadenó la Primera Guerra Mundial en 1914?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q1" value="a" required /> La firma del Tratado de Versalles</label
-						>
-						<label><input type="radio" name="q1" value="b" /> La invasión de Polonia</label>
-						<label
-							><input type="radio" name="q1" value="c" /> El asesinato del archiduque Francisco Fernando
-							</label
-						>
-						<label><input type="radio" name="q1" value="d" /> El bombardeo de Pearl Harbor</label>
-					</div>
+					{#each preguntas as { id, texto, opciones }, index}
+						<div class="question">
+							<p>{index + 1}. {texto}</p>
+							<div class="options">
+								{#each Object.entries(opciones) as [key, value]}
+									<label>
+										<input
+											type="radio"
+											name={id}
+											value={key}
+											bind:group={respuestas[id]}
+											required
+										/>
+										{value}
+									</label>
+								{/each}
+							</div>
+						</div>
+					{/each}
+
+					<button type="submit">Enviar Examen</button>
+				</form>
+			{:else}
+				<div>
+					<h2>Resultados del Examen</h2>
+					<pre>{mensajeResultado}</pre>
+					<button on:click={() => (mostrarResultado = false)}>Volver</button>
 				</div>
-
-				<div class="question">
-					<p>
-						2. ¿Qué potencias integraban la alianza de los Aliados y las Potencias Centrales en la
-						Primera Guerra Mundial?
-					</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q2" value="a" required /> Aliados: Alemania, Japón y Rusia;
-							Potencias Centrales: Francia, Reino Unido y Estados Unidos</label
-						>
-						<label
-							><input type="radio" name="q2" value="b" /> Aliados: Francia, Reino Unido, Rusia, EE.UU.;
-							Potencias Centrales: Alemania, Austria-Hungría, Imperio Otomano, Bulgaria </label
-						>
-						<label
-							><input type="radio" name="q2" value="c" /> Aliados: China, EE.UU. y Japón; Potencias Centrales:
-							Alemania y Rusia</label
-						>
-						<label
-							><input type="radio" name="q2" value="d" /> Aliados: Austria-Hungría, Alemania y Rusia;
-							Potencias Centrales: Francia, EE.UU. y Reino Unido</label
-						>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>3. ¿Cuáles fueron las principales causas de la Primera Guerra Mundial?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q3" value="a" required /> Nacionalismo, militarismo, imperialismo
-							y alianzas </label
-						>
-						<label
-							><input type="radio" name="q3" value="b" /> Carrera espacial, tratados comerciales, conflictos
-							civiles y avances tecnológicos</label
-						>
-						<label
-							><input type="radio" name="q3" value="c" /> Expansión de la Liga de Naciones, guerra fría,
-							descolonización y competencia económica</label
-						>
-						<label
-							><input type="radio" name="q3" value="d" /> Crecimiento del socialismo, colonización de
-							África y acuerdos de paz</label
-						>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>
-						4. ¿Qué tipo de combate predominó en el Frente Occidental durante la Primera Guerra
-						Mundial?
-					</p>
-					<div class="options">
-						<label><input type="radio" name="q4" value="a" required /> Guerra de guerrillas</label>
-						<label><input type="radio" name="q4" value="b" /> Combates navales</label>
-						<label><input type="radio" name="q4" value="c" /> Guerra de trincheras </label
-						>
-						<label><input type="radio" name="q4" value="d" /> Ataques aéreos</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>5. ¿Qué tratado puso fin a la Primera Guerra Mundial y cómo afectó a Alemania?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q5" value="a" required /> Tratado de Versalles; sancionó duramente
-							a Alemania </label
-						>
-						<label
-							><input type="radio" name="q5" value="b" /> Tratado de Paz de París; otorgó territorios
-							a Alemania</label
-						>
-						<label
-							><input type="radio" name="q5" value="c" /> Tratado de Núremberg; promovió la reconstrucción
-							alemana</label
-						>
-						<label
-							><input type="radio" name="q5" value="d" /> Tratado de Tordesillas; dividió el continente
-							americano</label
-						>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>
-						6. ¿Cuáles fueron las consecuencias económicas de la Primera Guerra Mundial para los
-						países europeos?
-					</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q6" value="a" required /> Prosperidad y crecimiento económico
-							en toda Europa</label
-						>
-						<label
-							><input type="radio" name="q6" value="b" /> Crisis económica y devastación en muchos países
-							europeos </label
-						>
-						<label
-							><input type="radio" name="q6" value="c" /> Incremento en los recursos disponibles y estabilidad
-							política</label
-						>
-						<label
-							><input type="radio" name="q6" value="d" /> Aumento en la inversión extranjera y reducción
-							de deudas</label
-						>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>
-						7. ¿Por qué el Tratado de Versalles y la humillación impuesta a Alemania se consideran
-						causas de la Segunda Guerra Mundial?
-					</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q7" value="a" required /> Porque promovieron la paz entre los
-							países europeos</label
-						>
-						<label
-							><input type="radio" name="q7" value="b" /> Porque fortalecieron la economía y las fuerzas
-							militares de Alemania</label
-						>
-						<label
-							><input type="radio" name="q7" value="c" /> Porque generaron resentimiento en Alemania,
-							facilitando el ascenso del nazismo </label
-						>
-						<label
-							><input type="radio" name="q7" value="d" /> Porque crearon buenas relaciones diplomáticas
-							entre Alemania y Francia</label
-						>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>
-						8. ¿Qué países formaban parte de las Potencias del Eje durante la Segunda Guerra
-						Mundial?
-					</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q8" value="a" required /> Reino Unido, Francia y Estados Unidos</label
-						>
-						<label><input type="radio" name="q8" value="b" /> China, Unión Soviética y EE.UU.</label
-						>
-						<label
-							><input type="radio" name="q8" value="c" /> Alemania, Italia y Japón </label
-						>
-						<label><input type="radio" name="q8" value="d" /> Alemania, Rusia y Francia</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>9. ¿Cuál fue el impacto de la rendición de Alemania y Japón en 1945?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q9" value="a" required /> Inició la Guerra Fría </label
-						>
-						<label
-							><input type="radio" name="q9" value="b" /> Puso fin a la Primera Guerra Mundial</label
-						>
-						<label
-							><input type="radio" name="q9" value="c" /> Comenzó la Revolución Industrial</label
-						>
-						<label><input type="radio" name="q9" value="d" /> Estableció la Liga de Naciones</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>
-						10. ¿Qué organismo internacional se creó tras la Segunda Guerra Mundial con el fin de
-						mantener la paz global?
-					</p>
-					<div class="options">
-						<label><input type="radio" name="q10" value="a" /> La Liga de Naciones</label>
-						<label><input type="radio" name="q10" value="b" /> La OTAN</label>
-						<label><input type="radio" name="q10" value="c" required /> La ONU </label>
-						<label><input type="radio" name="q10" value="d" /> La Comunidad Europea</label>
-					</div>
-				</div>
-
-				<button type="submit">Enviar Examen</button>
-			</form>
+			{/if}
 		</div>
 	{/if}
 </div>

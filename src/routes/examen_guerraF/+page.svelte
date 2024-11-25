@@ -1,7 +1,152 @@
 <script>
 	import '$lib/CSS/examen_guerraF.css';
-    import guerra from'$lib/IMAGES/img_examen_guerraF/guerra-fria.jpeg'
+	import guerra from '$lib/IMAGES/img_examen_guerraF/guerra-fria.jpeg';
 	let activeTab = 'video';
+
+	let nombre = '';
+	let email = '';
+	let respuestas = {}; // Almacenar las respuestas del usuario
+	let correctas = 0;
+	let incorrectas = 0;
+	let mensajeResultado = '';
+	let mostrarResultado = false;
+
+	const preguntas = [
+		{
+			id: 'q1',
+			texto: '¿Qué período histórico abarca la Guerra Fría?',
+			opciones: {
+				a: '1945-1980',
+				b: '1947-1991',
+				c: '1939-1945',
+				d: '1950-1975'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q2',
+			texto: '¿Cuáles eran los dos bloques principales en la Guerra Fría?',
+			opciones: {
+				a: 'Liberal y autoritario',
+				b: 'Occidental y oriental',
+				c: 'Capitalista y socialista',
+				d: 'Democrático y totalitario'
+			},
+			correcta: 'c'
+		},
+		{
+			id: 'q3',
+			texto: '¿Qué evento se considera el inicio del conflicto que dio lugar a la Guerra Fría?',
+			opciones: {
+				a: 'Fin de la Segunda Guerra Mundial',
+				b: 'Bloqueo de Berlín',
+				c: 'Revolución Rusa',
+				d: 'Conferencia de Yalta'
+			},
+			correcta: 'a'
+		},
+		{
+			id: 'q4',
+			texto: '¿Cuál de las siguientes crisis ocurrió durante la Guerra Fría?',
+			opciones: {
+				a: 'Guerra de Vietnam',
+				b: 'Crisis de los misiles cubanos',
+				c: 'Guerra de Irak',
+				d: 'Crisis del petróleo'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q5',
+			texto: '¿Cuál era uno de los principales objetivos de Estados Unidos durante la Guerra Fría?',
+			opciones: {
+				a: 'Expandir el comunismo',
+				b: 'Defender el comunismo',
+				c: 'Contener el comunismo',
+				d: 'Aislar a la URSS'
+			},
+			correcta: 'c'
+		},
+		{
+			id: 'q6',
+			texto: '¿Qué buscaba la Unión Soviética durante la Guerra Fría?',
+			opciones: {
+				a: 'Promover el libre mercado',
+				b: 'Expandir la influencia del comunismo',
+				c: 'Mantener relaciones con los países de Europa Occidental',
+				d: 'Establecer democracias en Europa del Este'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q7',
+			texto: '¿Cuál de las siguientes fue una consecuencia de la Guerra Fría?',
+			opciones: {
+				a: 'Alianzas con países neutrales',
+				b: 'Carrera armamentista',
+				c: 'Descolonización pacífica',
+				d: 'Estabilidad política global'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q8',
+			texto: '¿Qué evento simbolizó de manera más clara el fin de la Guerra Fría?',
+			opciones: {
+				a: 'La disolución de la URSS',
+				b: 'La caída del Muro de Berlín',
+				c: 'La llegada del hombre a la Luna',
+				d: 'La firma del Tratado de Versalles'
+			},
+			correcta: 'b'
+		},
+		{
+			id: 'q9',
+			texto: '¿Qué reformas en la URSS ayudaron a contribuir al fin de la Guerra Fría?',
+			opciones: {
+				a: 'Glasnost y Perestroika',
+				b: 'Marshall y Lend-Lease',
+				c: 'Nueva Política Económica',
+				d: 'Seguridad Social y Educación'
+			},
+			correcta: 'a'
+		},
+		{
+			id: 'q10',
+			texto: '¿Qué efecto tuvo la política exterior de Ronald Reagan sobre la Guerra Fría?',
+			opciones: {
+				a: 'Aumentó la cooperación con la URSS',
+				b: 'Incrementó la presión económica sobre la URSS',
+				c: 'Promovió el comunismo en Europa del Este',
+				d: 'Estableció la paz en Oriente Medio'
+			},
+			correcta: 'b'
+		}
+	];
+
+	function enviarExamen(event) {
+		event.preventDefault();
+		correctas = 0;
+		incorrectas = 0;
+
+		preguntas.forEach(({ id, correcta }) => {
+			if (respuestas[id] === correcta) {
+				correctas++;
+			} else {
+				incorrectas++;
+			}
+		});
+
+		mensajeResultado = `
+			Nombre: ${nombre}
+			Correo: ${email}
+			
+			Correctas: ${correctas}
+			Incorrectas: ${incorrectas}
+		`;
+
+		mostrarResultado = true;
+	}
 
 	function openTab(tab) {
 		activeTab = tab;
@@ -13,7 +158,11 @@
 		<h4>SOCIOLAB🌎</h4>
 	</div>
 	<ul class="nav-links">
-		<li><a href="/temas" data-sveltekit-preload-data="tap" data-sveltekit-reload  class="nav-item">Inicio</a></li>
+		<li>
+			<a href="/temas" data-sveltekit-preload-data="tap" data-sveltekit-reload class="nav-item"
+				>Inicio</a
+			>
+		</li>
 		<li><a href="/sobre_nosotros" class="nav-item">nosotros</a></li>
 		<li><a href="/" class="nav-item">Contacto</a></li>
 	</ul>
@@ -155,144 +304,44 @@
 
 	{#if activeTab === 'examen'}
 		<div class="tab-content active">
-			<h2 style="text-align: center;">Examen de Opción Múltiple</h2>
-			<form id="examForm">
-				<label for="nombre">Nombre:</label>
-				<input type="text" id="nombre" name="nombre" required />
+			{#if !mostrarResultado}
+				<h2>Examen de Opción Múltiple</h2>
+				<form on:submit={enviarExamen}>
+					<label for="nombre">Nombre:</label>
+					<input type="text" id="nombre" bind:value={nombre} required />
 
-				<label for="email">Correo Electrónico:</label>
-				<input type="email" id="email" name="email" required />
-				<div class="question">
-					<p>1. ¿Qué período histórico abarca la Guerra Fría?</p>
-					<div class="options">
-						<label><input type="radio" name="q1" value="a" required /> 1945-1980</label>
-						<label><input type="radio" name="q1" value="b" /> 1947-1991</label>
-						<label><input type="radio" name="q1" value="c" /> 1939-1945</label>
-						<label><input type="radio" name="q1" value="d" /> 1950-1975</label>
-					</div>
+					<label for="email">Correo Electrónico:</label>
+					<input type="email" id="email" bind:value={email} required />
+
+					{#each preguntas as { id, texto, opciones }, index}
+						<div class="question">
+							<p>{index + 1}. {texto}</p>
+							<div class="options">
+								{#each Object.entries(opciones) as [key, value]}
+									<label>
+										<input
+											type="radio"
+											name={id}
+											value={key}
+											bind:group={respuestas[id]}
+											required
+										/>
+										{value}
+									</label>
+								{/each}
+							</div>
+						</div>
+					{/each}
+
+					<button type="submit">Enviar Examen</button>
+				</form>
+			{:else}
+				<div>
+					<h2>Resultados del Examen</h2>
+					<pre>{mensajeResultado}</pre>
+					<button on:click={() => (mostrarResultado = false)}>Volver</button>
 				</div>
-
-				<div class="question">
-					<p>2. ¿Cuáles eran los dos bloques principales en la Guerra Fría?</p>
-					<div class="options">
-						<label><input type="radio" name="q2" value="a" required /> Liberal y autoritario</label>
-						<label><input type="radio" name="q2" value="b" /> Occidental y oriental</label>
-						<label><input type="radio" name="q2" value="c" /> Capitalista y socialista</label>
-						<label><input type="radio" name="q2" value="d" /> Democrático y totalitario</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>3. ¿Qué evento se considera el inicio del conflicto que dio lugar a la Guerra Fría?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q3" value="a" required /> Fin de la Segunda Guerra Mundial</label
-						>
-						<label><input type="radio" name="q3" value="b" /> Bloqueo de Berlín</label>
-						<label><input type="radio" name="q3" value="c" /> Revolución Rusa</label>
-						<label><input type="radio" name="q3" value="d" /> Conferencia de Yalta</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>4. ¿Cuál de las siguientes crisis ocurrió durante la Guerra Fría?</p>
-					<div class="options">
-						<label><input type="radio" name="q4" value="a" required /> Guerra de Vietnam</label>
-						<label><input type="radio" name="q4" value="b" /> Crisis de los misiles cubanos</label>
-						<label><input type="radio" name="q4" value="c" /> Guerra de Irak</label>
-						<label><input type="radio" name="q4" value="d" /> Crisis del petróleo</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>
-						5. ¿Cuál era uno de los principales objetivos de Estados Unidos durante la Guerra Fría?
-					</p>
-					<div class="options">
-						<label><input type="radio" name="q5" value="a" required /> Expandir el comunismo</label>
-						<label><input type="radio" name="q5" value="b" /> Defender el comunismo</label>
-						<label><input type="radio" name="q5" value="c" /> Contener el comunismo</label>
-						<label><input type="radio" name="q5" value="d" /> Aislar a la URSS</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>6. ¿Qué buscaba la Unión Soviética durante la Guerra Fría?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q6" value="a" required /> Promover el libre mercado</label
-						>
-						<label
-							><input type="radio" name="q6" value="b" /> Expandir la influencia del comunismo</label
-						>
-						<label
-							><input type="radio" name="q6" value="c" /> Mantener relaciones con los países de Europa
-							Occidental</label
-						>
-						<label
-							><input type="radio" name="q6" value="d" /> Establecer democracias en Europa del Este</label
-						>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>7. ¿Cuál de las siguientes fue una consecuencia de la Guerra Fría?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q7" value="a" required /> Alianzas con países neutrales</label
-						>
-						<label><input type="radio" name="q7" value="b" /> Carrera armamentista</label>
-						<label><input type="radio" name="q7" value="c" /> Descolonización pacífica</label>
-						<label><input type="radio" name="q7" value="d" /> Estabilidad política global</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>8. ¿Qué evento simbolizó de manera más clara el fin de la Guerra Fría?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q8" value="a" required /> La disolución de la URSS</label
-						>
-						<label><input type="radio" name="q8" value="b" /> La caída del Muro de Berlín</label>
-						<label><input type="radio" name="q8" value="c" /> La llegada del hombre a la Luna</label
-						>
-						<label
-							><input type="radio" name="q8" value="d" /> La firma del Tratado de Versalles</label
-						>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>9. ¿Qué reformas en la URSS ayudaron a contribuir al fin de la Guerra Fría?</p>
-					<div class="options">
-						<label><input type="radio" name="q9" value="a" required /> Glasnost y Perestroika</label
-						>
-						<label><input type="radio" name="q9" value="b" /> Marshall y Lend-Lease</label>
-						<label><input type="radio" name="q9" value="c" /> Nueva Política Económica</label>
-						<label><input type="radio" name="q9" value="d" /> Seguridad Social y Educación</label>
-					</div>
-				</div>
-
-				<div class="question">
-					<p>10. ¿Qué efecto tuvo la política exterior de Ronald Reagan sobre la Guerra Fría?</p>
-					<div class="options">
-						<label
-							><input type="radio" name="q10" value="a" required /> Aumentó la cooperación con la URSS</label
-						>
-						<label
-							><input type="radio" name="q10" value="b" /> Incrementó la presión económica sobre la URSS</label
-						>
-						<label
-							><input type="radio" name="q10" value="c" /> Promovió el comunismo en Europa del Este</label
-						>
-						<label
-							><input type="radio" name="q10" value="d" /> Estableció la paz en Oriente Medio</label
-						>
-					</div>
-				</div>
-
-				<button type="submit">Enviar Examen</button>
-			</form>
+			{/if}
 		</div>
 	{/if}
 </div>
