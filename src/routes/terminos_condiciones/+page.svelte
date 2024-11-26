@@ -75,6 +75,6 @@
 
 <footer>
     <div class="container">
-        <p>&copy; 2023 SocioLab. Todos los derechos reservados.</p>
+        <p>&copy; 2024 SOCIOLAB. Todos los derechos reservados.</p>
     </div>
 </footer>
