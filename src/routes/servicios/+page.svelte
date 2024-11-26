@@ -14,7 +14,7 @@
       
         <li><a href="/temas" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Inicio</a></li>
         <li><a href="/sobre_nosotros" data-sveltekit-preload-data="tap" data-sveltekit-reload>nosotros</a></li>
-        <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Contacto</a></li>
+        
  
        
     </ul>
@@ -32,17 +32,19 @@
             <div class="service-card">
                 <img src={imagen1} alt="Diseño Web">
                 <h2>Educacion </h2>
-                <p>Creamos sitios web atractivos y funcionales que representan tu marca.</p>
+                <p>Buscamos formar personas las cuales tengan bases en el área de sociales que sirvan para distintas pruebas que se presenten en la vida, como por ejemplos las pruebas ICFES.
+                </p>
             </div>
             <div class="service-card">
                 <img src={imgexamen} alt="Desarrollo de Aplicaciones">
                 <h2>Preparacion</h2>
-                <p>Desarrollamos aplicaciones móviles y de escritorio personalizadas.</p>
+                <p>La intención de SocioLab es preparar y enseñar a estudiantes para que adquieran el conocimiento necesario del ámbito social para pruebas o actividades donde se requiera y que es necesario para salir a la vida.
+                </p>
             </div>
             <div class="service-card">
                 <img src={imgcolegio} alt="Marketing Digital">
                 <h2>Futuro</h2>
-                <p>Estrategias de marketing digital para aumentar tu presencia en línea.</p>
+                <p>SocioLab planea preparar a los distintos estudiantes con la información necesaria para poder obtener buenos puntajes en pruebas donde se requiera el conocimiento, de igual manera se proyecta como una herramienta de la institución en la que se encuentre para así poder beneficiar a los estudiantes.</p>
             </div>
            
         </div>

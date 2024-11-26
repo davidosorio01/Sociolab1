@@ -1,5 +1,8 @@
 <script>
     import '$lib/CSS/inicio_sesion.css'
+    import inicio from '$lib/IMAGES/images/inicio_sesion.png'
+    import registro from '$lib/IMAGES/images/registro.png'
+
     let signUpMode = false;  
 
     function toggleSignUp() {  
@@ -31,19 +34,9 @@
             <input name="password" type="password" placeholder="Password" required/>
           </div>
           <input type="submit" value="Login" class="btn solid" />
-          <p class="social-text">O Iniciar sesión con plataformas sociales</p>
           <div class="social-media">
-            <a href="/" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="/" class="social-icon">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="/" class="social-icon">
-              <i class="fab fa-google"></i>
-            </a>
-            <a href="/" class="social-icon">
-              <i class="fab fa-linkedin-in"></i>
+            <a href="/recuperar">
+              <h4>¿Olvidaste tu contraseña?</h4>
             </a>
           </div>
         </form>
@@ -65,19 +58,10 @@
             <input name="password" type="password" placeholder="Password" required/>
           </div>
           <input type="submit" class="btn" value="Sign up" />
-          <p class="social-text">O Regístrese con las plataformas sociales</p>
           <div class="social-media">
-            <a href="/" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="/" class="social-icon">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="/" class="social-icon">
-              <i class="fab fa-google"></i>
-            </a>
-            <a href="/" class="social-icon">
-              <i class="fab fa-linkedin-in"></i>
+            <input type="checkbox" required>
+            <a href="/terminos_condiciones">
+              <h4>Terminos y condiciones</h4>
             </a>
           </div>
         </form>
@@ -93,7 +77,7 @@
             registrarse
           </button>
         </div>
-        <img src="file:///C:/Users/USUARIO/Downloads/undraw_mobile_content_xvgr.svg" class="image" alt="" id="cohete" />
+        <img src={registro} class="image" alt="" id="cohete" />
       </div>
       <div class="panel right-panel">
         <div class="content">
@@ -103,7 +87,14 @@
             Iniciar sesión
           </button>
         </div>
-        <img src="file:///C:/Users/USUARIO/Downloads/undraw_electricity_k2ft.svg" class="image" alt="" />
+        <img src={inicio} class="image" alt="" />
       </div>
     </div>
   </div>
+
+<style>
+  .social-media a{
+    color: #932699;
+    text-decoration: none;
+  }
+</style>

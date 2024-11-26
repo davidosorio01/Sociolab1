@@ -162,8 +162,6 @@
 				>Inicio</a
 			>
 		</li>
-		<li><a href="/sobre_nosotros" class="nav-item">nosotros</a></li>
-		<li><a href="/" class="nav-item">Contacto</a></li>
 	</ul>
 	<div class="burger">
 		<div class="line1"></div>

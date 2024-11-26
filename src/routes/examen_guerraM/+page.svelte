@@ -173,8 +173,6 @@
 				>Inicio</a
 			>
 		</li>
-		<li><a href="/examen_guerraM" class="nav-item">Nosotros</a></li>
-		<li><a href="/" class="nav-item">Contacto</a></li>
 	</ul>
 	<div class="burger">
 		<div class="line1"></div>

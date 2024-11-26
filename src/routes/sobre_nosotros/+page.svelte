@@ -14,7 +14,6 @@
     <ul class="nav-links">
         <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Inicio</a></li>
         <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Servicios</a></li>
-        <li><a href="/" class="nav-item" data-sveltekit-preload-data="tap" data-sveltekit-reload>Contacto</a></li>
        
     </ul>
     <div class="burger">
